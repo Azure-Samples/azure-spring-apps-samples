@@ -1,11 +1,11 @@
 ---
 page_type: sample
 languages:
-- csharp
+- java
 products:
-- dotnet
-description: "Add 150 character max description"
-urlFragment: "update-this-to-unique-url-stub"
+- azure-spring-cloud
+description: "Sample projects for Azure Spring Cloud"
+urlFragment: "azure-spring-cloud-samples"
 ---
 
 # Official Microsoft Sample
