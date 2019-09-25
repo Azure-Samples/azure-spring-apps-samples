@@ -8,7 +8,7 @@ description: "Sample projects for Azure Spring Cloud"
 urlFragment: "azure-spring-cloud-samples"
 ---
 
-# Official Microsoft Sample
+# Azure Spring Cloud Samples
 
 <!-- 
 Guidelines on README format: https://review.docs.microsoft.com/help/onboard/admin/samples/concepts/readme-template?branch=master
@@ -18,7 +18,8 @@ Guidance on onboarding samples to docs.microsoft.com/samples: https://review.doc
 Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
 -->
 
-Give a short description for your sample here. What does it do and why is it important?
+This repository contains samples projects for Azure Spring Cloud.
+These sample projects show how to use various features in Azure Spring Cloud.
 
 ## Contents
 
