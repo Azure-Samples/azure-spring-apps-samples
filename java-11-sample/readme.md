@@ -6,11 +6,11 @@ This sample shows how to run Java 11 app in Azure Spring Cloud Service.
 
 1. Run `mvn clean package` under `java-11-sample`.
 2. Install CLI for Azure Spring Cloud.
-3. Create an instance of Azure Spring Cloud with public domain assigned.
+3. Create an instance of Azure Spring Cloud.
 ```
 az spring-cloud create -n <resource name> -g <resource group name>
 ```
-4. Create an app
+4. Create an app with public domain assigned.
 ```
 az spring-cloud app create -n <app name> -s <resource name> -g <resource group name> --is-public true 
 ```
@@ -24,6 +24,6 @@ az spring-cloud app show -n <app name> -s <resource name> -g <resource group nam
 ```
 7. Verify sample is working. The url is fetch from previous step. 
 ```
-curl https://url/{name}
+curl {url}/{name}
 Hello {name}
 ```
