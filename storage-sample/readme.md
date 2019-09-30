@@ -1,6 +1,12 @@
 ### Storage Sample
 
-This sample shows how to use temporary and persistent storage in Azure Spring Cloud Service.
+This sample shows how to use temporary and persistent storage in `Azure Spring Cloud`.
+
+### Prerequisite
+
+* Java 8
+* Maven
+* Azure CLI
 
 ### How to run 
 
@@ -16,7 +22,7 @@ az spring-cloud app create -n <app name> -s <resource name> -g <resource group n
 ```
 5. Deploy app with jar
 ```
-az spring-cloud app deploy -n <app name> -s <resource name> -g <resource group name> --jar-path ./target/hello-world-11-1.0-SNAPSHOT.jar
+az spring-cloud app deploy -n <app name> -s <resource name> -g <resource group name> --jar-path ./target/storage-sample-1.0-SNAPSHOT.jar
 ```
 6. Verify app is running. Instances should have status `RUNNING` and discoveryStatus `UP`. 
 ```
