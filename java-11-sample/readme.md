@@ -1,6 +1,12 @@
 ### Java 11 Sample
 
-This sample shows how to run Java 11 app in Azure Spring Cloud Service.
+This sample shows how to run Java 11 app in `Azure Spring Cloud`.
+
+### Prerequisite
+
+* Java 11
+* Maven
+* Azure CLI
 
 ### How to run 
 
