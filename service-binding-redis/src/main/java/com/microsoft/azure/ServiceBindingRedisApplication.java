@@ -3,7 +3,7 @@
  * Licensed under the MIT License. See LICENSE in the project root for
  * license information.
  */
-package com.example.accessingdatamysql;
+package com.microsoft.azure;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,9 +11,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-public class AccessingDataMysqlApplication {
+public class ServiceBindingRedisApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(AccessingDataMysqlApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(ServiceBindingRedisApplication.class, args);
+	}
 }

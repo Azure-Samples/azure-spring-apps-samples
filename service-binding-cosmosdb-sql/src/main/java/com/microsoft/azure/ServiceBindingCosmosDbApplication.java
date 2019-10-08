@@ -3,7 +3,7 @@
  * Licensed under the MIT License. See LICENSE in the project root for
  * license information.
  */
-package sample.documentdb;
+package com.microsoft.azure;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,15 +18,15 @@ import java.util.Optional;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-public class DocumentDbSampleApplication implements CommandLineRunner {
+public class ServiceBindingCosmosDbApplication implements CommandLineRunner {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(DocumentDbSampleApplication.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ServiceBindingCosmosDbApplication.class);
 
     @Autowired
     private UserRepository repository;
 
     public static void main(String[] args) {
-        SpringApplication.run(DocumentDbSampleApplication.class, args);
+        SpringApplication.run(ServiceBindingCosmosDbApplication.class, args);
     }
 
     public void run(String... var1) throws Exception {

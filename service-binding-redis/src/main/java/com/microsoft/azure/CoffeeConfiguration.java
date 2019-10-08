@@ -3,7 +3,7 @@
  * Licensed under the MIT License. See LICENSE in the project root for
  * license information.
  */
-package hello;
+package com.microsoft.azure;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
