@@ -1,4 +1,4 @@
-### Service Binding Sample
+# Binding your app with Azure COSMOS Mongo API
 
 This sample shows how to run app with Azure Cosmos DB(Mongo) in `Azure Spring Cloud`.
 
