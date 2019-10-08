@@ -1,4 +1,4 @@
-### Java 11 Sample
+# Run Java 11 app in Azure Spring Cloud
 
 This sample shows how to run Java 11 app in `Azure Spring Cloud`.
 
