@@ -1,4 +1,4 @@
-### Storage Sample
+# Temporary and persistent storage in Azure Spring Cloud
 
 This sample shows how to use temporary and persistent storage in `Azure Spring Cloud`.
 
