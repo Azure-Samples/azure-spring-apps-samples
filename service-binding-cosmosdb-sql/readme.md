@@ -1,4 +1,4 @@
-### Service Binding Sample
+# Bind your app with Azure COSMOS SQL API
 
 This sample shows how to run app with Azure Cosmos DB(SQL) in `Azure Spring Cloud`.
 
