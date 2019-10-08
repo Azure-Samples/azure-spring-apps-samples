@@ -36,12 +36,12 @@ Below table shows the list of samples available in this repository.
 
 | Folder                           | Description                                |
 |----------------------------------|--------------------------------------------|
-| `service-binding-cosmosdb-mongo` | Service binding sample with Azure CosmosDB Mongo API |
-| `service-binding-cosmosdb-sql`   | Service binding sample with Azure CosmosDB SQL API   |
-| `service-binding-mysql`          | Service binding sample with Azure Database for MySQL |
-| `service-binding-redis`          | Service binding sample with Azure Cache for Redis    |
-| `storage-sample`                 | Sample showing how to use temporary and persistent storage in Azure Spring Cloud |
-| `java-11-sample`                 | Java 11 sample project to run in Azure Spring Cloud |
+| [`service-binding-cosmosdb-mongo`](./service-binding-cosmosdb-mongo/) | Service binding sample with Azure CosmosDB Mongo API |
+| [`service-binding-cosmosdb-sql`](./service-binding-cosmosdb-sql/) | Service binding sample with Azure CosmosDB SQL API   |
+| [`service-binding-mysql`](./service-binding-mysql/) | Service binding sample with Azure Database for MySQL |
+| [`service-binding-redis`](./service-binding-redis/) | Service binding sample with Azure Cache for Redis    |
+| [`storage-sample`](./storage-sample/) | Sample showing how to use temporary and persistent storage in Azure Spring Cloud |
+| [`java-11-sample`](./java-11-sample/) | Java 11 sample project to run in Azure Spring Cloud |
 
 ## Contributing
 
