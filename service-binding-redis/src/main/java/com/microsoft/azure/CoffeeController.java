@@ -3,7 +3,7 @@
  * Licensed under the MIT License. See LICENSE in the project root for
  * license information.
  */
-package hello;
+package com.microsoft.azure;
 
 import org.springframework.data.redis.core.ReactiveRedisOperations;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,5 +22,10 @@ public class CoffeeController {
     public Flux<Coffee> all() {
         return coffeeOps.keys("*")
                 .flatMap(coffeeOps.opsForValue()::get);
+    }
+
+    @GetMapping(path="/hello")
+    public String hello() {
+        return "hello!";
     }
 }

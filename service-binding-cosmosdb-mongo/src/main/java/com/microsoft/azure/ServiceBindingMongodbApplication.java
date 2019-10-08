@@ -4,7 +4,7 @@
  * license information.
  */
 
-package com.example.accessingdatamongodb;
+package com.microsoft.azure;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,13 +14,13 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-public class AccessingDataMongodbApplication implements CommandLineRunner {
+public class ServiceBindingMongodbApplication implements CommandLineRunner {
 
 	@Autowired
-	private CustomerRepository repository;
+	private UserRepository repository;
 
 	public static void main(String[] args) {
-		SpringApplication.run(AccessingDataMongodbApplication.class, args);
+		SpringApplication.run(ServiceBindingMongodbApplication.class, args);
 	}
 
 	@Override
@@ -29,28 +29,21 @@ public class AccessingDataMongodbApplication implements CommandLineRunner {
 		repository.deleteAll();
 
 		// save a couple of customers
-		repository.save(new Customer("Alice", "Smith"));
-		repository.save(new Customer("Bob", "Smith"));
+		repository.save(new User("Alice"));
+		repository.save(new User("Bob"));
 
 		// fetch all customers
 		System.out.println("Customers found with findAll():");
 		System.out.println("-------------------------------");
-		for (Customer customer : repository.findAll()) {
-			System.out.println(customer);
+		for (User user : repository.findAll()) {
+			System.out.println(user);
 		}
 		System.out.println();
 
 		// fetch an individual customer
 		System.out.println("Customer found with findByFirstName('Alice'):");
 		System.out.println("--------------------------------");
-		System.out.println(repository.findByFirstName("Alice"));
-
-		System.out.println("Customers found with findByLastName('Smith'):");
-		System.out.println("--------------------------------");
-		for (Customer customer : repository.findByLastName("Smith")) {
-			System.out.println(customer);
-		}
-
+		System.out.println(repository.findByName("Alice"));
 	}
 
 }

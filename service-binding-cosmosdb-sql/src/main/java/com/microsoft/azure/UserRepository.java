@@ -4,7 +4,7 @@
  * license information.
  */
 
-package sample.documentdb;
+package com.microsoft.azure;
 
 import com.microsoft.azure.spring.data.cosmosdb.repository.DocumentDbRepository;
 import org.springframework.stereotype.Repository;
