@@ -25,7 +25,7 @@ This sample shows how to run app with Azure Cosmos DB(Mongo) in `Azure Spring Cl
     ```
 1. Deploy app with jar.
     ```
-    az spring-cloud app deploy -n <app name> -s <resource name> -g <resource group name> --jar-path ./target/service-binding-cosmosdb-sql-0.1.0.jar
+    az spring-cloud app deploy -n <app name> -s <resource name> -g <resource group name> --jar-path ./target/asc-service-binding-cosmosdb-sql-sample-0.1.0.jar
     ```
 1. Add a binding of Azure Cosmos for this app.
     ```
