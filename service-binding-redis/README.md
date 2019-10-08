@@ -1,4 +1,4 @@
-### Service Binding Sample
+### Bind your app with Azure Cache for Redis
 
 This sample shows how to run app with Azure Cache for Redis in `Azure Spring Cloud`.
 
