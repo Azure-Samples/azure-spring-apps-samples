@@ -4,7 +4,7 @@ This sample shows how to run app with Azure Cosmos DB(SQL) in `Azure Spring Clou
 
 ### Prerequisite
 
-* [JDK 8](https://docs.microsoft.com/en-us/azure/java/jdk/java-jdk-install)
+* [JDK 11](https://docs.microsoft.com/en-us/azure/java/jdk/java-jdk-install)(Doesn't work on Java8)
 * [Maven 3.0 and above](http://maven.apache.org/install.html)
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
 
