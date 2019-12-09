@@ -1,0 +1,24 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${your-git-repository-uri}
+          default-label: master
+          search-paths:
+            - /
+          repos:
+            sample:
+              pattern:
+                - sample/*
+                - dev/*
+              uri: ${your-git-repository-uri}
+              username: ${your-git-repository-username}
+              password: ${your-git-repository-password-or-token}
+            test:
+              pattern:
+                - test/*
+              uri: ${your-git-repository-uri}
+              private-key: ${your-git-repository-ssh-private-key}
+
+# Reference: https://cloud.spring.io/spring-cloud-static/spring-cloud-config/2.1.4.RELEASE/single/spring-cloud-config.html#_pattern_matching_and_multiple_repositories
