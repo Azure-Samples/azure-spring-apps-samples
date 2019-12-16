@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${your-git-repository-uri}
+          private-key: ${your-git-repository-ssh-private-key}
+
+# Reference: https://cloud.spring.io/spring-cloud-static/spring-cloud-config/2.1.4.RELEASE/single/spring-cloud-config.html#_git_ssh_configuration_using_properties
