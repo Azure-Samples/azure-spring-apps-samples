@@ -46,6 +46,7 @@ Below table shows the list of samples available in this repository.
 | [`service-binding-redis`](./service-binding-redis/) | Service binding sample with Azure Cache for Redis    |
 | [`storage-sample`](./storage-sample/) | Sample showing how to use temporary and persistent storage in Azure Spring Cloud |
 | [`java-11-sample`](./java-11-sample/) | Java 11 sample project to run in Azure Spring Cloud |
+| [`java-8-sample`](./java-8-sample/) | Java 8 sample project to run in Azure Spring Cloud |
 
 ## Contributing
 

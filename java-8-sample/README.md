@@ -35,7 +35,9 @@ This sample shows how to run Java 8 app in `Azure Spring Cloud`.
     az spring-cloud create -n <service name> -g <resource group name>
     ```
 
-1. Configure Azure Spring Cloud to pull config from a GIT repo
+1. Create a public repo that only has the provided `application.yml` file
+
+1. Using the URI of that repo, configure Azure Spring Cloud to pull config from it
 
     ```bash
     az spring-cloud config-server git set --name <service name> --uri <my config git repo>
