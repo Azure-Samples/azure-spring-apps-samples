@@ -55,7 +55,7 @@ This sample shows how to run Java 8 app in `Azure Spring Cloud`.
     az spring-cloud app deploy -n <app name> -s <service name> -g <resource group name> --jar-path ./target/java8-ASC-demo-0.0.1-SNAPSHOT.jar
     ```
 
-1. Once the deploy command finishes, retrieve the new "App Instance Name" from the output and review the logs
+1. Using the output of the new app instance, retrieve the "App Instance Name" and use in the following command to review the logs
 
     ```bash
     az spring-cloud app logs -f -n <app name> -i <App Instance Name>
