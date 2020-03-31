@@ -24,3 +24,6 @@ buildNumber.properties
 *.iml
 .project
 .settings
+
+# Publish
+publish/
