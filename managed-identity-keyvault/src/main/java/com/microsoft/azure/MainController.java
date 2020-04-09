@@ -18,7 +18,7 @@ import java.time.Duration;
 
 @RestController
 public class MainController {
-    private static SecretClient secretClient;
+    private SecretClient secretClient;
 
     @Value("${azure.keyvault.uri:local}")
     private String keyVaultUrl;
