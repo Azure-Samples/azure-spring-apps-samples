@@ -23,9 +23,9 @@ public class MainController {
     private EventHubConsumerClient consumer;
 
     @Value("${spring.cloud.azure.eventhub.fully-qualifiedNamespace:local}")
-    String fullyQualifiedNamespace = "xiading-asc.servicebus.windows.net";
+    String fullyQualifiedNamespace;
     @Value("${spring.cloud.azure.eventhub.name:local}")
-    String eventHubName = "xiading-hub";
+    String eventHubName;
 
     @PostConstruct
     private void setupSecretClient() {
@@ -40,6 +40,7 @@ public class MainController {
                     .buildProducerClient();
             consumer = new EventHubClientBuilder()
                     .credential(fullyQualifiedNamespace, eventHubName, managedIdentityCredential)
+                    .consumerGroup(EventHubClientBuilder.DEFAULT_CONSUMER_GROUP_NAME)
                     .buildConsumerClient();
         } catch (Exception ex) {
             System.out.println("Error happens when init due to " + ex.getMessage());
