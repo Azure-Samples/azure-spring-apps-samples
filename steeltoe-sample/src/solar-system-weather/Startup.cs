@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 
 using Steeltoe.Discovery.Client;
 
-namespace Microsoft.Azure.SpringCloud.Sample.EurekaDataProvider
+namespace Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather
 {
     public class Startup
     {

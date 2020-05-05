@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="1.0.0-alpha.1" />
-    <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.4.2" />
+    <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.4.3" />
   </ItemGroup>
 
 </Project>
