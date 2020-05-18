@@ -36,7 +36,7 @@ public class MainController {
                 .buildClient();
     }
 
-    @PutMapping("/secret/{name}")
+    @PutMapping("/secrets/{name}")
     public String setSecret(@PathVariable String name, @RequestParam String value) {
         try {
             KeyVaultSecret secret = secretClient.setSecret(name, value);
@@ -47,7 +47,7 @@ public class MainController {
         }
     }
 
-    @GetMapping(path="/secret/{name}")
+    @GetMapping(path="/secrets/{name}")
     public String getSecret(@PathVariable String name) {
         try {
             KeyVaultSecret secret = secretClient.getSecret(name);

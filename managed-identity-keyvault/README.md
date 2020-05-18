@@ -42,9 +42,8 @@ This sample shows how to access Key Vault with Managed Identity in `Azure Spring
 9. Verify sample is working. The url is fetched from previous step.
     ```
     # Create a secret in Key Vault
-    curl -X PUT {url}/secret/{secret-name}?value={value}
+    curl -X PUT {url}/secrets/{secret-name}?value={value}
 
-    # Get the value of secret-name 
-    curl {url}/secret/{secret-name}
-    # return the secret value you just created before
+    # Get the value of secret-name you just created before
+    curl {url}/secrets/{secret-name}
     ```
