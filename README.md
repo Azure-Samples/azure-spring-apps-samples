@@ -41,7 +41,7 @@ Below table shows the list of samples available in this repository.
 | Folder                           | Description                                |
 |----------------------------------|--------------------------------------------|
 | [`managed-identity-keyvault`](./managed-identity-keyvault) | Sample project using system assigned managed identity to access Key Vault |
-| [`managed-identity-storage-blob`](./managed-identity-storage-blob) | Sample project using system assigned managed to access Storage blob |
+| [`managed-identity-storage-blob`](./managed-identity-storage-blob) | Sample project using system assigned managed identity to access Storage blob |
 | [`service-binding-cosmosdb-mongo`](./service-binding-cosmosdb-mongo/) | Service binding sample with Azure CosmosDB Mongo API |
 | [`service-binding-cosmosdb-sql`](./service-binding-cosmosdb-sql/) | Service binding sample with Azure CosmosDB SQL API   |
 | [`service-binding-mysql`](./service-binding-mysql/) | Service binding sample with Azure Database for MySQL |
