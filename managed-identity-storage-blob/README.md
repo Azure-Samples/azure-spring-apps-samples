@@ -4,11 +4,10 @@ This sample shows how to access Storage Blob with managed identity in `Azure Spr
 
 ## Prerequisite
 
-* 
 * [JDK 8](https://docs.microsoft.com/en-us/azure/java/jdk/java-jdk-install)
 * [Maven 3.0 and above](http://maven.apache.org/install.html)
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
-* An existing Storage Account. If you need to create a Storage Account , you can use the Azure Portal or [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest).
+* An existing Storage account. If you need to create a Storage account , you can use the [Azure Portal](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal) or [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)
 
 ## How to run 
 
