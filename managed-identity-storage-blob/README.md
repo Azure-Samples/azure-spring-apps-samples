@@ -1,6 +1,6 @@
-# Access Storage Blob with Managed Identity
+# Access Storage Blob with managed identity
 
-This sample shows how to access Storage Blob with Managed Identity in `Azure Spring Cloud`.
+This sample shows how to access Storage Blob with managed identity in `Azure Spring Cloud`.
 
 ## Prerequisite
 
@@ -23,11 +23,11 @@ This sample shows how to access Storage Blob with Managed Identity in `Azure Spr
     ```
     az spring-cloud app create -n <app name> -s <resource name> -g <resource group name> --is-public true 
     ```
-5. Enable system-assigned Managed Identity for your app.
+5. Enable system-assigned managed identity for your app.
    ```
    az spring-cloud app identity assign -n <app name> -s <resource name> -g <resource group name>
    ```
-6. Grant permission of Storage Account to the system-assigned Managed Identity
+6. Grant permission of Storage Account to the system-assigned managed identity
     ```
     az role assignment create --assignee <principal-id-you-got-in-step5> --role "Storage Blob Data Contributor" --scope <resource-id-of-storage-account>
     ```

@@ -1,6 +1,6 @@
-# Access Key Vault with Managed Identity
+# Access Key Vault with managed identity
 
-This sample shows how to access Key Vault with Managed Identity in `Azure Spring Cloud`.
+This sample shows how to access Key Vault with managed identity in `Azure Spring Cloud`.
 
 ## Prerequisite
 
@@ -23,11 +23,11 @@ This sample shows how to access Key Vault with Managed Identity in `Azure Spring
     ```
     az spring-cloud app create -n <app name> -s <resource name> -g <resource group name> --is-public true 
     ```
-5. Enable system-assigned Managed Identity for your app.
+5. Enable system-assigned managed identity for your app.
    ```
    az spring-cloud app identity assign -n <app name> -s <resource name> -g <resource group name>
    ```
-6. Grant permission of Key Vault to the system-assigned Managed Identity
+6. Grant permission of Key Vault to the system-assigned managed identity
     ```
     az keyvault set-policy -n keyvault_name -g resource_group_of_keyvault --secret-permissions {backup, delete, get, list, purge, recover, restore, set} --object-id <principal-id-you-got-in-step5>
     ```
