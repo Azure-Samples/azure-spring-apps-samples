@@ -23,7 +23,7 @@ This sample shows how to access Storage Blob with managed identity in `Azure Spr
     ```
     az spring-cloud app create -n <app name> -s <resource name> -g <resource group name> --is-public true 
     ```
-5. Enable system-assigned managed identity for your app.
+5. Enable system-assigned managed identity for your app and take note of the principal id from the command output.
    ```
    az spring-cloud app identity assign -n <app name> -s <resource name> -g <resource group name>
    ```
