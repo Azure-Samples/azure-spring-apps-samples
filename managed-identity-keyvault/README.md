@@ -7,6 +7,7 @@ This sample shows how to access Key Vault with managed identity in `Azure Spring
 * [JDK 8](https://docs.microsoft.com/en-us/azure/java/jdk/java-jdk-install)
 * [Maven 3.0 and above](http://maven.apache.org/install.html)
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
+* An existing Key Vault. If you need to create a Key Vault, you can use the Azure Portal or [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest).
 
 ## How to run 
 
