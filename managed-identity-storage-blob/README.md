@@ -32,7 +32,6 @@ This sample shows how to access Storage Blob with managed identity in `Azure Spr
     ```
     az role assignment create --assignee <principal-id-you-got-in-step5> --role "Storage Blob Data Contributor" --scope <resource-id-of-storage-account>
     ```
-
 7. Deploy app with jar.
     ```
     az spring-cloud app deploy -n <app name> -s <resource name> -g <resource group name> --jar-path ./target/asc-managed-identity-storage-blob-sample-0.1.0.jar
