@@ -11,7 +11,7 @@ This sample shows how to access Key Vault with managed identity in `Azure Spring
 
 ## How to run 
 
-1. Run `mvn clean package` after specifying the URI of your Key Vault in [application.properties](./src/main/resources/application.properties)
+1. Run `mvn clean package` after specifying the URI of your Key Vault in [application.properties](./src/main/resources/application.properties).
 2. Install Azure CLI extension for Azure Spring Cloud by running below command.
     ```
     az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
@@ -28,11 +28,11 @@ This sample shows how to access Key Vault with managed identity in `Azure Spring
    ```
    az spring-cloud app identity assign -n <app name> -s <resource name> -g <resource group name>
    ```
-6. Grant permission of Key Vault to the system-assigned managed identity
+6. Grant permission of Key Vault to the system-assigned managed identity.
     ```
     az keyvault set-policy -n keyvault_name -g resource_group_of_keyvault --secret-permissions {backup, delete, get, list, purge, recover, restore, set} --object-id <principal-id-you-got-in-step5>
     ```
-7. Deploy app with jar
+7. Deploy app with jar.
     ```
     az spring-cloud app deploy -n <app name> -s <resource name> -g <resource group name> --jar-path ./target/asc-managed-identity-keyvault-sample-0.1.0.jar
     ```
