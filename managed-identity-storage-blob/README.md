@@ -11,7 +11,7 @@ This sample shows how to access Storage Blob with managed identity in `Azure Spr
 
 ## How to run 
 
-1. Run `mvn clean package` after specifying the storage account and container in [application.properties](./src/main/resources/application.properties)
+1. Run `mvn clean package` after specifying the storage account and container in [application.properties](./src/main/resources/application.properties).
 2. Install Azure CLI extension for Azure Spring Cloud by running below command.
     ```
     az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
@@ -28,12 +28,12 @@ This sample shows how to access Storage Blob with managed identity in `Azure Spr
    ```
    az spring-cloud app identity assign -n <app name> -s <resource name> -g <resource group name>
    ```
-6. Grant permission of Storage Account to the system-assigned managed identity
+6. Grant permission of Storage Account to the system-assigned managed identity.
     ```
     az role assignment create --assignee <principal-id-you-got-in-step5> --role "Storage Blob Data Contributor" --scope <resource-id-of-storage-account>
     ```
 
-7. Deploy app with jar
+7. Deploy app with jar.
     ```
     az spring-cloud app deploy -n <app name> -s <resource name> -g <resource group name> --jar-path ./target/asc-managed-identity-storage-blob-sample-0.1.0.jar
     ```
