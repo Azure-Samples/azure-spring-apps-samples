@@ -2,6 +2,8 @@
 
 This sample shows how to access Key Vault with managed identity in `Azure Spring Cloud`.
 
+You need include [ManagedIdentityCredentialBuilder](https://docs.microsoft.com/en-us/java/api/com.azure.identity.managedidentitycredentialbuilder?view=azure-java-stable) and [SecretClientBuilder](https://docs.microsoft.com/en-us/java/api/com.azure.security.keyvault.secrets.secretclientbuilder?view=azure-java-stable) in your code. In this sample project, you could refer to [MainController.java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/managed-identity-keyvault/src/main/java/com/microsoft/azure/MainController.java#L28). 
+
 ## Prerequisite
 
 * [JDK 8](https://docs.microsoft.com/en-us/azure/java/jdk/java-jdk-install)
@@ -30,7 +32,7 @@ This sample shows how to access Key Vault with managed identity in `Azure Spring
    ```
 6. Grant permission of Key Vault to the system-assigned managed identity.
     ```
-    az keyvault set-policy -n keyvault_name -g resource_group_of_keyvault --secret-permissions {backup, delete, get, list, purge, recover, restore, set} --object-id <principal-id-you-got-in-step5>
+    az keyvault set-policy -n keyvault_name -g resource_group_of_keyvault --secret-permissions get set --object-id <principal-id-you-got-in-step5>
     ```
 7. Deploy app with jar.
     ```

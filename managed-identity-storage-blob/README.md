@@ -2,6 +2,8 @@
 
 This sample shows how to access Storage Blob with managed identity in `Azure Spring Cloud`.
 
+You need include [ManagedIdentityCredentialBuilder](https://docs.microsoft.com/en-us/java/api/com.azure.identity.managedidentitycredentialbuilder?view=azure-java-stable) and [BlobServiceClientBuilder](https://docs.microsoft.com/en-us/java/api/com.azure.storage.blob.blobserviceclientbuilder?view=azure-java-stable) in your code. In this sample project, you could refer to [MainController.java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/managed-identity-storage-blob/src/main/java/com/microsoft/azure/MainController.java#L37). 
+
 ## Prerequisite
 
 * [JDK 8](https://docs.microsoft.com/en-us/azure/java/jdk/java-jdk-install)
