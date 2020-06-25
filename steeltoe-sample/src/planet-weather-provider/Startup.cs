@@ -4,7 +4,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Microsoft.Azure.SpringCloud.Sample.ConfigServer
+using Steeltoe.Discovery.Client;
+using Steeltoe.Management.Exporter.Tracing;
+using Steeltoe.Management.Tracing;
+
+namespace Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider
 {
     public class Startup
     {
@@ -18,6 +22,12 @@ namespace Microsoft.Azure.SpringCloud.Sample.ConfigServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDiscoveryClient(Configuration);
+
+            services.AddDistributedTracing(Configuration);
+
+            services.AddZipkinExporter(Configuration);
+
             services.AddControllers();
         }
 
@@ -29,11 +39,14 @@ namespace Microsoft.Azure.SpringCloud.Sample.ConfigServer
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseDiscoveryClient();
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+            app.UseTracingExporter();
         }
     }
 }

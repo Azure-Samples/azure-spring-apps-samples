@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Azure.SpringCloud.Client;
 using Microsoft.Extensions.Hosting;
 
-namespace Microsoft.Azure.SpringCloud.Sample.EurekaDataConsumer
+using Steeltoe.Extensions.Configuration.ConfigServer;
+
+namespace Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider
 {
     public class Program
     {
@@ -25,6 +27,7 @@ namespace Microsoft.Azure.SpringCloud.Sample.EurekaDataConsumer
                 {
                     webBuilder.UseStartup<Startup>();
                 })
+                .AddConfigServer()
                 .UseAzureSpringCloudService();
     }
 }

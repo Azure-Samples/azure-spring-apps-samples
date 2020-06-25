@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Azure.SpringCloud.Client;
 using Microsoft.Extensions.Hosting;
 
-namespace Microsoft.Azure.SpringCloud.Sample.EurekaDataProvider
+namespace Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather
 {
     public class Program
     {
