@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using Steeltoe.Discovery.Client;
+using Steeltoe.Management.Exporter.Tracing;
+using Steeltoe.Management.Tracing;
 
 namespace Microsoft.Azure.SpringCloud.Sample.EurekaDataConsumer
 {
@@ -21,6 +23,11 @@ namespace Microsoft.Azure.SpringCloud.Sample.EurekaDataConsumer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDiscoveryClient(Configuration);
+
+            services.AddDistributedTracing(Configuration);
+
+            services.AddZipkinExporter(Configuration);
+
             services.AddControllers();
         }
 
@@ -38,6 +45,8 @@ namespace Microsoft.Azure.SpringCloud.Sample.EurekaDataConsumer
             {
                 endpoints.MapControllers();
             });
+
+            app.UseTracingExporter();
         }
     }
 }

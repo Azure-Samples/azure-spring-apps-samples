@@ -27,3 +27,6 @@ buildNumber.properties
 
 # Publish
 publish/
+
+# VS Code
+.vscode/
