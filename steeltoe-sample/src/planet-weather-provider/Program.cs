@@ -12,6 +12,7 @@ namespace Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider
     {
         public static void Main(string[] args)
         {
+            // TO REMOVE
             var oldURL = Environment.GetEnvironmentVariable("ASCSVCRT_MANAGEMENT__TRACING__EXPORTER__ZIPKIN__ENDPOINT");
             Console.WriteLine("oldURL = {0}", oldURL);
             Environment.SetEnvironmentVariable("ASCSVCRT_MANAGEMENT__TRACING__EXPORTER__ZIPKIN__ENDPOINT", oldURL + "api/v2/spans");
