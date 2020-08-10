@@ -10,13 +10,6 @@ namespace Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather
     {
         public static void Main(string[] args)
         {
-            // TO REMOVE
-            var oldURL = Environment.GetEnvironmentVariable("ASCSVCRT_MANAGEMENT__TRACING__EXPORTER__ZIPKIN__ENDPOINT");
-            Console.WriteLine("oldURL = {0}", oldURL);
-            Environment.SetEnvironmentVariable("ASCSVCRT_MANAGEMENT__TRACING__EXPORTER__ZIPKIN__ENDPOINT", oldURL + "api/v2/spans");
-            var newURL = Environment.GetEnvironmentVariable("ASCSVCRT_MANAGEMENT__TRACING__EXPORTER__ZIPKIN__ENDPOINT");
-            Console.WriteLine("newValue = {0}", newURL);
-
             CreateHostBuilder(args).Build().Run();
         }
 
