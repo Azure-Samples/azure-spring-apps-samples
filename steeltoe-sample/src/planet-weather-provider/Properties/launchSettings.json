@@ -12,15 +12,15 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast/Mars",
+      "launchUrl": "weatherforecast",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Microsoft.Azure.SpringCloud.Sample.EurekaDataProvider": {
+    "Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast/Mars",
+      "launchUrl": "weatherforecast",
       "applicationUrl": "http://localhost:56339",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

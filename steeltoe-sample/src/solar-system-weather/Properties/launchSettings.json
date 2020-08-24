@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Microsoft.Azure.SpringCloud.Sample.EurekaDataConsumer": {
+    "Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",
