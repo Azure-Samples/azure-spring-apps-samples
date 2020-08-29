@@ -1,8 +1,10 @@
 using System;
 
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Azure.SpringCloud.Client;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Hosting;
+
+using Microsoft.Azure.SpringCloud.Client;
 
 namespace Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather
 {
