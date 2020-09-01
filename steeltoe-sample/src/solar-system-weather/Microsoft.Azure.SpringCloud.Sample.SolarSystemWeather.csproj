@@ -11,4 +11,10 @@
     <PackageReference Include="Steeltoe.Management.ExporterCore" Version= "2.4.4"/>
   </ItemGroup>
 
+  <Target Name="ZipOutputPath" AfterTargets="Build">
+    <ZipDirectory
+      SourceDirectory="$(OutputPath)"
+      DestinationFile="$(MSBuildProjectDirectory)/deploy.zip" />
+  </Target>
+
 </Project>
