@@ -14,7 +14,8 @@
   <Target Name="ZipOutputPath" AfterTargets="Build">
     <ZipDirectory
       SourceDirectory="$(OutputPath)"
-      DestinationFile="$(MSBuildProjectDirectory)/deploy.zip" />
+      DestinationFile="$(MSBuildProjectDirectory)/deploy.zip"
+      Overwrite="true" />
   </Target>
 
 </Project>
