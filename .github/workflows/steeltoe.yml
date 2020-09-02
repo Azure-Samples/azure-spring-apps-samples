@@ -31,11 +31,24 @@ jobs:
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: ${{ matrix.dotnet }}
+          
+      # Set credential for az login
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          
+      - name: install spring cloud extension
+        run: az extension add --source https://steeltoe.blob.core.windows.net/cli/spring_cloud-0.5.1-py2.py3-none-any.whl
       
       - name: Build and package planet-weather-provider app
         working-directory: ${{env.working-directory}}/src/planet-weather-provider
-        run: dotnet build
+        run: |
+          dotnet build
+          az spring-cloud app deploy -n planet-weather-provider --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.dll --artifact-path ./deploy.zip -s ${{ secrets.SERVICE_NAME }} -g ${{ secrets.RESOURCE_GROUP_NAME }}
 
       - name: Build solar-system-weather app
         working-directory: ${{env.working-directory}}/src/solar-system-weather
-        run: dotnet build
+        run: |
+          dotnet build
+          az spring-cloud app deploy -n solar-system-weather --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.dll --artifact-path ./deploy.zip -s ${{ secrets.SERVICE_NAME }} -g ${{ secrets.RESOURCE_GROUP_NAME }}
+        
