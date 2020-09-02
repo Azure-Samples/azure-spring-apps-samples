@@ -15,14 +15,14 @@
   <Target Name="Build-Zip" AfterTargets="Build">
     <ZipDirectory
       SourceDirectory="$(OutputPath)"
-      DestinationFile="$(MSBuildProjectDirectory)/build-deploy.zip"
+      DestinationFile="$(MSBuildProjectDirectory)/build-deploy-planet.zip"
       Overwrite="true" />
   </Target>
 
   <Target Name="Publish-Zip" AfterTargets="Publish">
     <ZipDirectory
-      SourceDirectory="$(OutputPath)/publish"
-      DestinationFile="$(MSBuildProjectDirectory)/publish-deploy.zip"
+      SourceDirectory="$(PublishDir)"
+      DestinationFile="$(MSBuildProjectDirectory)/publish-deploy-planet.zip"
       Overwrite="true" />
   </Target>
 
