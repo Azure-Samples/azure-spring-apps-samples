@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -14,14 +14,14 @@
   <Target Name="Build-Zip" AfterTargets="Build">
     <ZipDirectory
       SourceDirectory="$(OutputPath)"
-      DestinationFile="$(MSBuildProjectDirectory)/build-deploy.zip"
+      DestinationFile="$(MSBuildProjectDirectory)/build-deploy-solar.zip"
       Overwrite="true" />
   </Target>
 
   <Target Name="Publish-Zip" AfterTargets="Publish">
     <ZipDirectory
-      SourceDirectory="$(OutputPath)/publish"
-      DestinationFile="$(MSBuildProjectDirectory)/publish-deploy.zip"
+      SourceDirectory="$(PublishDir)"
+      DestinationFile="$(MSBuildProjectDirectory)/publish-deploy-solar.zip"
       Overwrite="true" />
   </Target>
 
