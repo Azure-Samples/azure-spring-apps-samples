@@ -11,18 +11,8 @@
     <PackageReference Include="Steeltoe.Management.ExporterCore" Version= "2.4.4"/>
   </ItemGroup>
 
-  <Target Name="Build-Zip" AfterTargets="Build">
-    <ZipDirectory
-      SourceDirectory="$(OutputPath)"
-      DestinationFile="$(MSBuildProjectDirectory)/build-deploy.zip"
-      Overwrite="true" />
-  </Target>
-
   <Target Name="Publish-Zip" AfterTargets="Publish">
-    <ZipDirectory
-      SourceDirectory="$(OutputPath)/publish"
-      DestinationFile="$(MSBuildProjectDirectory)/publish-deploy.zip"
-      Overwrite="true" />
+    <ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/publish-deploy-frontend.zip" Overwrite="true" />
   </Target>
 
 </Project>
