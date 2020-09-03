@@ -20,10 +20,7 @@
   </Target>
 
   <Target Name="Publish-Zip" AfterTargets="Publish">
-    <ZipDirectory
-      SourceDirectory="$(OutputPath)/publish"
-      DestinationFile="$(MSBuildProjectDirectory)/publish-deploy.zip"
-      Overwrite="true" />
+    <ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/publish-deploy-planet.zip" Overwrite="true" />
   </Target>
 
 </Project>
