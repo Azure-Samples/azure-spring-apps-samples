@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <Target Name="Publish-Zip" AfterTargets="Publish">
-    <ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/publish-deploy-frontend.zip" Overwrite="true" />
+    <ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/publish-deploy-solar.zip" Overwrite="true" />
   </Target>
 
 </Project>
