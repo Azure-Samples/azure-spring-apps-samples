@@ -6,15 +6,17 @@
 
 package com.microsoft.azure;
 
-import org.springframework.data.annotation.Id;
 import com.microsoft.azure.spring.data.cosmosdb.core.mapping.PartitionKey;
+import lombok.Data;
+import org.springframework.data.annotation.Id;
 
+@Data
 public class User {
 
     @Id
-    @PartitionKey
     public String id;
 
+    @PartitionKey
     public String name;
 
     public User() {}
