@@ -2,17 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>SolarSystemWeather</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="1.0.0-alpha.1" />
-    <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.4.4" />
-    <PackageReference Include="Steeltoe.Management.TracingCore" Version= "2.4.4"/>
-    <PackageReference Include="Steeltoe.Management.ExporterCore" Version= "2.4.4"/>
+		<PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="1.0.0-alpha.1" />
+		<PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.0.0" />
+		<PackageReference Include="Steeltoe.Discovery.Eureka" Version="3.0.0" />
+		<PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="3.0.0" />
+		<PackageReference Include="Steeltoe.Management.EndpointCore" Version="3.0.0" />
+		<PackageReference Include="Steeltoe.Management.TracingCore" Version="3.0.0" />
   </ItemGroup>
 
-  <Target Name="Publish-Zip" AfterTargets="Publish">
-    <ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/publish-deploy-solar.zip" Overwrite="true" />
-  </Target>
+  <Target Name="Package" AfterTargets="Build;Publish">
+    <ZipDirectory SourceDirectory="$(OutputPath)" DestinationFile="$(MSBuildProjectDirectory)/deploy.zip" Overwrite="true" />
+  </Target>  
 
 </Project>

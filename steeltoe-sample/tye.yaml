@@ -1,0 +1,41 @@
+# tye application configuration file
+# read all about it at https://github.com/dotnet/tye
+#
+# when you've given us a try, we'd love to know what you think:
+#    https://aka.ms/AA7q20u
+#
+name: microsoft.azure.springcloud.samples
+services:
+- name: zipkin
+  image: openzipkin/zipkin
+  bindings:
+    - port: 9411
+
+- name: eureka
+  image: steeltoeoss/eurekaserver:1.4.4
+  bindings:
+    - port: 8761
+    
+#- name: planetweatherprovider
+#  project: src/planet-weather-provider/Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.csproj
+#  env:
+#  - name: ASPNETCORE_ENVIRONMENT
+#    value: Docker
+#  bindings:
+#  - protocol: http
+#    port: 56339
+
+#- name: solarsystemweather
+#  project: src/solar-system-weather/Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.csproj
+#  env:
+#  - name: ASPNETCORE_ENVIRONMENT
+#    value: Docker
+#  bindings:
+#  - protocol: http
+#    port: 56351
+
+#- name: weatherapp
+#  project: src/weather-app/Microsoft.Azure.SpringCloud.Sample.WeatherApp.csproj
+#  env:
+#  - name: ASPNETCORE_ENVIRONMENT
+#    value: Docker

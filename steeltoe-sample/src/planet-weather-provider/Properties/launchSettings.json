@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider": {
+    "PlanetWeatherProvider": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",

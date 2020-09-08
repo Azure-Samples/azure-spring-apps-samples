@@ -17,6 +17,12 @@ namespace Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.Controllers
             this.logger = logger;
         }
 
+        [HttpGet("")]
+        public string Get()
+        {
+          return "Hi there. Just testing.";
+				}
+
         [HttpGet("{planet}")]
         public string Get(string planet)
         {

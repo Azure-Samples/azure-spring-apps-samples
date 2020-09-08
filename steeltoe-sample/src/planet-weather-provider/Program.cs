@@ -1,12 +1,11 @@
 using System;
 
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Logging;
+//using Microsoft.Azure.SpringCloud.Client;
 using Microsoft.Extensions.Hosting;
-
+using Steeltoe.Discovery.Client;
 using Steeltoe.Extensions.Configuration.ConfigServer;
-
-using Microsoft.Azure.SpringCloud.Client;
+using Steeltoe.Management.Endpoint;
 
 namespace Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider
 {
@@ -23,7 +22,10 @@ namespace Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider
                 {
                     webBuilder.UseStartup<Startup>();
                 })
-                .AddConfigServer()
-                .UseAzureSpringCloudService();
+                .AddHealthActuator()
+                //.AddConfigServer()
+                .AddDiscoveryClient()
+//                .UseAzureSpringCloudService()
+                ;
     }
 }
