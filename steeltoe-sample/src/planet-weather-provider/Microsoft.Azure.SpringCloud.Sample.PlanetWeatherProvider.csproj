@@ -13,18 +13,11 @@
   </ItemGroup>
 
   <Target Name="Build-Zip" AfterTargets="Build">
-    <ZipDirectory
-      SourceDirectory="$(OutputPath)"
-      DestinationFile="$(MSBuildProjectDirectory)/build-deploy-planet.zip"
-      Overwrite="true" />
+    <ZipDirectory SourceDirectory="$(OutputPath)" DestinationFile="$(MSBuildProjectDirectory)/build-deploy-planet.zip" Overwrite="true" />
   </Target>
 
   <Target Name="Publish-Zip" AfterTargets="Publish">
-    <ZipDirectory
-      SourceDirectory="$(PublishDir)"
-      DestinationFile="$(MSBuildProjectDirectory)/publish-deploy-planet.zip"
-      Overwrite="true" />
-    
+    <ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/publish-deploy-planet.zip" Overwrite="true" />
   </Target>
 
 </Project>
