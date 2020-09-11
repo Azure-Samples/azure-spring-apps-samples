@@ -26,3 +26,9 @@ buildNumber.properties
 *.iml
 .project
 .settings
+
+# Publish
+publish/
+
+# VS Code
+.vscode/
