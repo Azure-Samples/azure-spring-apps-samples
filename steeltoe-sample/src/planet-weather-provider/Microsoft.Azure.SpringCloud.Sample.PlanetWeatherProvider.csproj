@@ -24,6 +24,7 @@
       SourceDirectory="$(PublishDir)"
       DestinationFile="$(MSBuildProjectDirectory)/publish-deploy-planet.zip"
       Overwrite="true" />
+    
   </Target>
 
 </Project>
