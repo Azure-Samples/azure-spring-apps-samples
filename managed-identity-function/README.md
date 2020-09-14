@@ -7,7 +7,7 @@ This sample shows how to invoke an Azure Function securely from `Azure Spring Cl
 * [JDK 8](https://docs.microsoft.com/en-us/azure/java/jdk/java-jdk-install)
 * [Maven 3.0 and above](http://maven.apache.org/install.html)
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
-* An Http triggered [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)
+* An Http triggered [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) with [authentication enabled](https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization)
 
 ## How to run 
 
