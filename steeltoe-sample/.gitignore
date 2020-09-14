@@ -1,0 +1,7 @@
+# Visual Studio Projects
+.vs/
+.config/
+obj/
+bin/
+PublishProfiles/
+*.csproj.user
