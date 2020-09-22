@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="1.0.0-alpha.1" />
+    <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="1.0.0-preview.1" />
     <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.4.4" />
     <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="2.4.4" />
-    <PackageReference Include="Steeltoe.Management.TracingCore" Version= "2.4.4"/>
-    <PackageReference Include="Steeltoe.Management.ExporterCore" Version= "2.4.4"/>
+    <PackageReference Include="Steeltoe.Management.TracingCore" Version="2.4.4" />
+    <PackageReference Include="Steeltoe.Management.ExporterCore" Version="2.4.4" />
   </ItemGroup>
 
   <Target Name="Build-Zip" AfterTargets="Build">
