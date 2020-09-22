@@ -1,12 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-
-using Steeltoe.Common.Discovery;
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Steeltoe.Common.Discovery;
 
 namespace Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.Controllers
 {
