@@ -6,10 +6,7 @@ namespace Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather
 {
     public class Program
     {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
+        public static void Main(string[] args) => CreateHostBuilder(args).Build().Run();
 
         /// <summary>
         /// Configure steeltoe and Azure Spring Cloud.
@@ -37,10 +34,10 @@ namespace Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather
         /// </summary>
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .UseAzureSpringCloudService()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                })
-                .UseAzureSpringCloudService();
+                });
     }
 }

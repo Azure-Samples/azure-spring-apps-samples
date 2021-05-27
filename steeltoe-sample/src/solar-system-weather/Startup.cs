@@ -2,12 +2,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Console;
 using Microsoft.Extensions.Hosting;
-
+using Microsoft.Extensions.Logging;
 using Steeltoe.Discovery.Client;
-using Steeltoe.Management.Exporter.Tracing;
 using Steeltoe.Management.Tracing;
 
 namespace Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather
@@ -28,9 +25,7 @@ namespace Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather
 
             services.AddDiscoveryClient(Configuration);
 
-            services.AddDistributedTracing(Configuration);
-
-            services.AddZipkinExporter(Configuration);
+            services.AddDistributedTracing(Configuration, builder => builder.UseZipkinWithTraceOptions(services));
 
             services.AddControllers();
         }
@@ -49,8 +44,6 @@ namespace Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather
             {
                 endpoints.MapControllers();
             });
-
-            app.UseTracingExporter();
         }
     }
 }

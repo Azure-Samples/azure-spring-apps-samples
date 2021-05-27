@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Steeltoe.Common.Discovery;
+using Steeltoe.Discovery;
 
 namespace Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.Controllers
 {
