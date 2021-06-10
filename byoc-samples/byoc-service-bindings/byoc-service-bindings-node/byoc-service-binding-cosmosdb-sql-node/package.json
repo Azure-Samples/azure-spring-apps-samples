@@ -1,0 +1,16 @@
+{
+  "name": "byoc-service-binding-cosmosdb-sql-node-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@azure/cosmos": "^3.11.5",
+    "express": "^4.17.1"
+  }
+}
