@@ -37,7 +37,7 @@ This sample shows how to access Azure Spring Cloud managed Config Server through
    
 1. Create a service principal to access the Config Server in your application. Please mark down 
     ```bash
-    az ad sp create-for-rbac --scopes /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.AppPlatform/Spring/<service name> --role "Azure Spring Cloud Data Reader"
+    az ad sp create-for-rbac --scopes /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.AppPlatform/Spring/<service name> --role "Azure Spring Cloud Config Server Reader"
     ```
    The output includes credentials you will need in the next step.
    
