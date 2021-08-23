@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>com.microsoft.sample</groupId>
 	<artifactId>custom-config-server-client</artifactId>
-	<version>custom-config-server-client</version>
-	<name>spring-boot</name>
-	<description>Demo project for Spring Boot</description>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>custom-config-server-client</name>
+	<description>Demo project for showing how to access Azure Spring Cloud managed Config Server through Azure RBAC when your applications are running outside Azure Spring Cloud</description>
 
 	<properties>
 		<java.version>1.8</java.version>
