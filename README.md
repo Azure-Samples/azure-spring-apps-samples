@@ -40,6 +40,7 @@ Below table shows the list of samples available in this repository.
 
 | Folder                           | Description                                |
 |----------------------------------|--------------------------------------------|
+| [`custom-eureka-client`](./custom-eureka-client/) | Sample showing how to access Azure Spring Cloud managed Spring Cloud Service Registry through Azure RBAC when your applications are running outside Azure Spring Cloud |
 | [`managed-identity-keyvault`](./managed-identity-keyvault) | Sample project using system-assigned managed identity to access Key Vault |
 | [`managed-identity-storage-blob`](./managed-identity-storage-blob) | Sample project using system-assigned managed identity to access Storage blob |
 | [`service-binding-cosmosdb-mongo`](./service-binding-cosmosdb-mongo/) | Service binding sample with Azure CosmosDB Mongo API |
