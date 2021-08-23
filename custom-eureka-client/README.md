@@ -1,6 +1,6 @@
-# Access Azure Spring Cloud managed Config Server
+# Access Azure Spring Cloud managed Spring Cloud Service Registry
 
-This sample shows how to access Azure Spring Cloud managed Config Server through Azure RBAC when your applications are running outside Azure Spring Cloud.
+This sample shows how to access Azure Spring Cloud managed Spring Cloud Service Registry through Azure RBAC when your applications are running outside Azure Spring Cloud.
 
 ## Prerequisite
 

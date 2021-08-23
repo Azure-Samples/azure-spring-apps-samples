@@ -8,10 +8,10 @@
 		<version>2.3.3.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>spring-boot</artifactId>
+	<groupId>com.microsoft.sample</groupId>
+	<artifactId>custom-eureka-client</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-boot</name>
+	<name>custom-eureka-client</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
