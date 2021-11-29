@@ -43,9 +43,12 @@ This sample shows how to auto refresh config server changes by letting the confi
     az spring-cloud config-server git set --name <service name> --uri <my config git repo>
     ```
 1. Create an app with public domain assigned
-
     ```bash
     az spring-cloud app create -n <app name> -s <service name> -g <resource group name> --is-public true    
+    ```
+1. Get the app url: 
+    ```bash
+    az spring cloud app show -n <app name> -s <service name> -g <resource group name> --query properties.url
     ```
 1. Deploy the newly created jar
 
@@ -55,7 +58,7 @@ This sample shows how to auto refresh config server changes by letting the confi
 
 1. Change the config server configuration "timeout", after you change the property, the value "connectTimeout" in Application.class will change automatically in 10 seconds.
     ```bash
-    Curl {url}/hello, you will see the timeout value. The url is fetched from previous step.
+    Curl {url}/hello, you will see the timeout value. The url is fetched from previous step. 
     ```
 
 
