@@ -9,10 +9,6 @@ import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 import org.springframework.stereotype.Component;
 
-/**
- * Auto pull config changes from config server, default refresh interval is 60 seconds. This feature is disabled as
- * default, user should enable the feature by set spring.cloud.config.autoRefresh to true
- */
 @Component
 @AutoConfigureAfter({RefreshAutoConfiguration.class, RefreshEndpointAutoConfiguration.class})
 @EnableScheduling

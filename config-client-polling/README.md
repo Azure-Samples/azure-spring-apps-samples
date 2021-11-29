@@ -1,6 +1,6 @@
-# Run Java 8 app in Azure Spring Cloud
+## Auto refresh config server changes in Azure Spring Cloud
 
-This sample shows how to run Java 8 app in `Azure Spring Cloud`.
+This sample shows how to auto refresh config server changes by letting the config client to poll for changes based on a refresh internal.
 
 ## Prerequisite
 
