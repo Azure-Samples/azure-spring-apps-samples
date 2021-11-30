@@ -56,9 +56,8 @@ This sample shows how to auto refresh config server changes by letting the confi
     az spring-cloud app deploy -n <app name> -s <service name> -g <resource group name> --jar-path ./target/config-client-polling-1.0-SNAPSHOT.jar
     ```
 
-1. Change the config server configuration "timeout", after you change the property, the value "connectTimeout" in Application.class will change automatically in 10 seconds.
+1. Change the config server configuration "timeout", after you change the property, the value "connectTimeout" in Application.class will change automatically in 10 seconds. Run below command, you will see the timeout value. The url is fetched from previous step. 
+
     ```bash
-    Curl {url}/hello, you will see the timeout value. The url is fetched from previous step. 
+    Curl {url}/hello
     ```
-
-
