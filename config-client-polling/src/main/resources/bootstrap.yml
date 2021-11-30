@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    config:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
