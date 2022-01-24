@@ -33,15 +33,19 @@ This sample shows how to access MySQL with managed identity in `Azure Spring Clo
     ```
     az keyvault set-policy -n keyvault_name -g resource_group_of_keyvault --secret-permissions get set list --object-id <principal-id-you-got-in-step5>
     ```
-7. Deploy app with jar.
+7. Add MySQL password in Key Vault.
+    ```
+    az keyvault secret set --vault-name keyvault_name --name MYSQL-PASSWORD --value <MySQL-PASSWORD>
+    ```
+8. Deploy app with jar.
     ```
     az spring-cloud app deploy -n <app name> -s <resource name> -g <resource group name> --jar-path ./target/asc-managed-identity-mysql-sample-0.1.0.jar
     ```
-8.  Verify app is running. Instances should have status `RUNNING` and discoveryStatus `UP`. 
+9.  Verify app is running. Instances should have status `RUNNING` and discoveryStatus `UP`. 
     ```
     az spring-cloud app show -n <app name> -s <resource name> -g <resource group name>
     ```
-9. Verify sample is working. The url is fetched from previous step.
+10. Verify sample is working. The url is fetched from previous step.
     ```
     # Create an entry in table
     curl --header "Content-Type: application/json" \
