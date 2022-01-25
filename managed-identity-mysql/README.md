@@ -12,11 +12,11 @@ This sample shows how to access Azure Database for MySQL with managed identity i
 
 ## How to run
 
-1. Use the Key Vault instance name to replace the placeholder in `application.properties`.
+1. Use the Key Vault instance name to replace the placeholder in `application.properties` under `src/main/resources`.
     ```properties
     spring.cloud.azure.keyvault.secret.endpoint=https://<keyvault name>.vault.azure.net/
     ```
-2. Use the username and instance name of Azure Database for MySQL to replace the placeholder in `application.properties`.
+2. Use the username and instance name of Azure Database for MySQL to replace the placeholder in `application.properties` under `src/main/resources`.
     ```properties
     spring.datasource.url=jdbc:mysql://<mysql instance name>.mysql.database.azure.com:3306/demo?serverTimezone=UTC
     spring.datasource.username=<mysql username>@<mysql instance name>
