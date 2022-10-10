@@ -1,4 +1,4 @@
-package com.azure.spring.cloud.test.controller;
+package com.microsoft.azure.sample.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,4 +1,4 @@
-package com.azure.spring.cloud.test.config.client;
+package com.microsoft.azure.sample;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.SpringApplication;

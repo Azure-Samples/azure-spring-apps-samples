@@ -1,4 +1,4 @@
-package com.azure.spring.cloud.test.config.client;
+package com.microsoft.azure.sample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

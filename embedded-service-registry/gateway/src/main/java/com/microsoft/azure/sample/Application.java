@@ -1,4 +1,4 @@
-package com.azure.spring.cloud.test;
+package com.microsoft.azure.sample;
 
 
 import org.springframework.boot.SpringApplication;
