@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.asc</groupId>
-        <artifactId>embedded-service-registry</artifactId>
+        <artifactId>k8s-service-registry</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>greeting-server</artifactId>
+    <artifactId>greeting-client</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <dependencyManagement>
@@ -28,6 +28,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>3.1.4</version>
         </dependency>
     </dependencies>
 
