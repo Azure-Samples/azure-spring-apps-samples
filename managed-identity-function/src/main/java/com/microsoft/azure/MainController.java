@@ -5,81 +5,65 @@
  */
 package com.microsoft.azure;
 
+import com.azure.core.credential.AccessToken;
+import com.azure.core.credential.TokenCredential;
 import com.azure.core.credential.TokenRequestContext;
-import com.fasterxml.jackson.core.*;
-
+import com.azure.identity.ChainedTokenCredentialBuilder;
+import com.azure.identity.EnvironmentCredential;
+import com.azure.identity.EnvironmentCredentialBuilder;
+import com.azure.identity.ManagedIdentityCredential;
+import com.azure.identity.ManagedIdentityCredentialBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-
-import java.net.*;
-import java.io.*;
 
 @RestController
 public class MainController {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(MainController.class);
+
     @Value("${azure.function.uri:local}")
     private String functionUri;
+    @Value("${azure.function.application-id.uri}")
+    private String applicationIdUri;
     @Value("${azure.function.triggerPath}")
     private String triggerPath;
+
 
     @GetMapping(path="/func/{name}")
     public String invokeFunction(@PathVariable String name) {
         try {
-            TokenRequestContext context = new TokenRequestContext();
-            context.addScopes(functionUri);
+            final EnvironmentCredential environmentCredential = new EnvironmentCredentialBuilder().build();
+            final ManagedIdentityCredential managedIdentityCredential = new ManagedIdentityCredentialBuilder().build();
+            TokenCredential tokenCredential = new ChainedTokenCredentialBuilder()
+                    .addLast(environmentCredential)
+                    .addLast(managedIdentityCredential)
+                    .build();
+
+            TokenRequestContext tokenRequestContext = new TokenRequestContext();
+            tokenRequestContext.addScopes(this.applicationIdUri + "/.default");
+            final AccessToken accessToken = tokenCredential.getTokenSync(tokenRequestContext);
 
             RestTemplate restTemplate = new RestTemplate();
-     
             HttpHeaders headers = new HttpHeaders();
-            headers.setBearerAuth(getMsiToken());
-            HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+            headers.setBearerAuth(accessToken.getToken());
+            HttpEntity<String> entity = new HttpEntity<>(null, headers);
 
-            String requestUri = String.format("%s/api/%s?name=%s", functionUri, triggerPath, name);
+            String requestUri = String.format("%s/api/%s?name=%s", this.functionUri, this.triggerPath, name);
             String result = restTemplate.exchange(requestUri, HttpMethod.GET, entity, String.class).getBody();
-            return result;            
+            return result;
         } catch (Exception ex) {
-            return String.format("Failed to invoke function %s", functionUri);
+            LOGGER.error("Fail to call the function", ex);
+            return String.format("Failed to invoke function %s", this.functionUri);
         }
     }
 
-    private String getMsiToken() {
-        String requestUri = String.format("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=%s",functionUri);
 
-        try {
-            URL msiEndpoint = new URL(requestUri);
-            HttpURLConnection con = (HttpURLConnection) msiEndpoint.openConnection();
-            con.setRequestMethod("GET");
-            con.setRequestProperty("Metadata", "true");
-    
-            if (con.getResponseCode()!=200) {
-                throw new Exception("Error calling managed identity token endpoint.");
-            }
-    
-            InputStream responseStream = con.getInputStream();
-    
-            JsonFactory factory = new JsonFactory();
-            JsonParser parser = factory.createParser(responseStream);
-    
-            while(!parser.isClosed()){
-                JsonToken jsonToken = parser.nextToken();
-    
-                if(JsonToken.FIELD_NAME.equals(jsonToken)){
-                    String fieldName = parser.getCurrentName();
-                    jsonToken = parser.nextToken();
-    
-                    if("access_token".equals(fieldName)){
-                        return parser.getValueAsString();
-                    }
-                }
-            }
-
-            return null;
-        } catch (Exception ex) {
-            return null;
-        }
-    }
 }
