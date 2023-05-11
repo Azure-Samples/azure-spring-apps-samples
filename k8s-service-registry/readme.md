@@ -16,6 +16,9 @@ It also supports [blue-green deployment](https://learn.microsoft.com/en-us/azure
 Azure Spring Apps will probe each instance and put the health instance into the dns record. Following [health probe](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-configure-health-probes-graceful-termination) you can set appropriate configuration.
 For blue-green deployment, ASA will put active deployment to the dns record. Inactive deployment will be ignored.
 
+Azure Spring Apps use [iptables proxy mode](https://kubernetes.io/docs/reference/networking/virtual-ips/#proxy-mode-iptables) to handle the traffic. By default, kube-proxy in iptables mode chooses a backend at random.
+
+
 
 ![](./media/service-registry.jpeg)
 
