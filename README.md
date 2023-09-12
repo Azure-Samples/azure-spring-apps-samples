@@ -3,7 +3,7 @@ page_type: sample
 languages:
 - java
 products:
-- azure-spring-cloud
+- azure-spring-apps
 description: "Sample projects for Azure Spring Cloud"
 urlFragment: "azure-spring-cloud-samples"
 ---
