@@ -1,6 +1,6 @@
 ## Config Server Git Repository `application.yml` Samples.
 
-This folder holds some samples of `application.yml` files, which can be imported into [Azure Spring Cloud](https://azure.microsoft.com/en-us/services/spring-cloud/) `Config Server` blade. For more details, please see [Import Settings from YAML File](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-tutorial-config-server#enter-repository-information-into-a-yaml-file).
+This folder holds some samples of `application.yml` files, which can be imported into `Config Server` blade of Azure Spring Apps service on Azure portal. For more details, please see [Import Settings from YAML File](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server#enter-repository-information-into-a-yaml-file).
 
 ### Startup
 

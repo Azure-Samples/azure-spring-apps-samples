@@ -1,24 +1,24 @@
 # Access Key Vault with managed identity
 
-This sample shows how to access Key Vault with managed identity in `Azure Spring Cloud`.
+This sample shows how to access Key Vault with managed identity in Azure Spring Apps.
 
-You need include [ManagedIdentityCredentialBuilder](https://docs.microsoft.com/en-us/java/api/com.azure.identity.managedidentitycredentialbuilder?view=azure-java-stable) and [SecretClientBuilder](https://docs.microsoft.com/en-us/java/api/com.azure.security.keyvault.secrets.secretclientbuilder?view=azure-java-stable) in your code. In this sample project, you could refer to [MainController.java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/managed-identity-keyvault/src/main/java/com/microsoft/azure/MainController.java#L28). 
+You need include [ManagedIdentityCredentialBuilder](https://docs.microsoft.com/java/api/com.azure.identity.managedidentitycredentialbuilder?view=azure-java-stable) and [SecretClientBuilder](https://docs.microsoft.com/java/api/com.azure.security.keyvault.secrets.secretclientbuilder?view=azure-java-stable) in your code. In this sample project, you could refer to [MainController.java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/managed-identity-keyvault/src/main/java/com/microsoft/azure/MainController.java#L28). 
 
 ## Prerequisite
 
-* [JDK 8](https://docs.microsoft.com/en-us/azure/java/jdk/java-jdk-install)
+* [JDK 8](https://docs.microsoft.com/azure/java/jdk/java-jdk-install)
 * [Maven 3.0 and above](http://maven.apache.org/install.html)
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
-* An existing Key Vault. If you need to create a Key Vault, you can use the [Azure Portal](https://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-portal) or [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
+* An existing Key Vault. If you need to create a Key Vault, you can use the [Azure Portal](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal) or [Azure CLI](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
 
 ## How to run 
 
 1. Run `mvn clean package` after specifying the URI of your Key Vault in [application.properties](./src/main/resources/application.properties).
-2. Install Azure CLI extension for Azure Spring Cloud by running below command.
+2. Install Azure CLI extension for Azure Spring Apps by running below command.
     ```
     az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
     ```
-3. Create an instance of Azure Spring Cloud.
+3. Create an instance of Azure Spring Apps.
     ```
     az spring-cloud create -n <resource name> -g <resource group name>
     ```

@@ -1,12 +1,12 @@
-## Auto refresh config server changes in Azure Spring Cloud
+## Auto refresh config server changes in Azure Spring Apps
 
 This sample shows how to auto refresh config server changes by letting the config client to poll for changes based on a refresh internal.
 
 ## Prerequisite
 
-* [JDK 8](https://docs.microsoft.com/en-us/azure/java/jdk/java-jdk-install)
+* [JDK 8](https://docs.microsoft.com/azure/java/jdk/java-jdk-install)
 * [Maven 3.0 and above](http://maven.apache.org/install.html)
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
 ## How to run
 
@@ -23,13 +23,13 @@ This sample shows how to auto refresh config server changes by letting the confi
     mvn clean package -D skipTests
     ```
 
-1. Install Azure CLI extension for Azure Spring Cloud
+1. Install Azure CLI extension for Azure Spring Apps
 
     ```bash
     az extension add --name spring-cloud
     ```
 
-1. Create an instance of Azure Spring Cloud
+1. Create an instance of Azure Spring Apps
 
     ```bash
     az spring-cloud create -n <service name> -g <resource group name>
@@ -37,7 +37,7 @@ This sample shows how to auto refresh config server changes by letting the confi
 
 1. Create a public repo that only has the provided `application.yml` file
 
-1. Using the URI of that repo, configure Azure Spring Cloud to pull config from it
+1. Using the URI of that repo, configure Azure Spring Apps to pull config from it
 
     ```bash
     az spring-cloud config-server git set --name <service name> --uri <my config git repo>

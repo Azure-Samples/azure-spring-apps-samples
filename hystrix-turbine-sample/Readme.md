@@ -1,8 +1,8 @@
-# Use Circuit Breaker Dashboard with Azure Spring Cloud
-[Spring Cloud Netflix Turbine](https://github.com/Netflix/Turbine) is widely used to aggregates multiple [Hystrix](https://github.com/Netflix/Hystrix) metrics streams so that it can be monitored in a single view using Hystrix dashboard. In this tutorial, we will demonstrate how to use them on Azure Spring Cloud.
+# Use Circuit Breaker Dashboard with Azure Spring Apps
+[Spring Cloud Netflix Turbine](https://github.com/Netflix/Turbine) is widely used to aggregates multiple [Hystrix](https://github.com/Netflix/Hystrix) metrics streams so that it can be monitored in a single view using Hystrix dashboard. In this tutorial, we will demonstrate how to use them on Azure Spring Apps.
 
 >[!NOTE]
-> Netflix Hystrix is widely used in many existing Spring Cloud apps but it is no longer in active development. If you are developing new project, you should use Spring Cloud Circuit Breaker implementations like [resilience4j](https://github.com/resilience4j/resilience4j) instead. Different from Turbine shown in this tutorial, the new Spring Cloud Circuit Breaker framework unifies all implementations of its metrics data pipeline into Micrometer. We are still working on supporting micrometer in Azure Spring Cloud, thus it will not be covered by this tutorial.
+> Netflix Hystrix is widely used in many existing Spring Cloud apps but it is no longer in active development. If you are developing new project, you should use Spring Cloud Circuit Breaker implementations like [resilience4j](https://github.com/resilience4j/resilience4j) instead. Different from Turbine shown in this tutorial, the new Spring Cloud Circuit Breaker framework unifies all implementations of its metrics data pipeline into Micrometer. We are still working on supporting micrometer in Azure Spring Apps, thus it will not be covered by this tutorial.
 
 ## Prepare your sample applications
 
@@ -24,13 +24,13 @@ mvn clean package -D skipTests -f recommendation-service/pom.xml
 mvn clean package -D skipTests -f hystrix-turbine/pom.xml
 ```
 
-## Provision your Azure Spring Cloud instance
+## Provision your Azure Spring Apps instance
 
-See: https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli
+See: https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli
 
-## Deploy your applications to Azure Spring Cloud
+## Deploy your applications to Azure Spring Apps
 
-Be aware that our apps are not using Config Server, thus no need to config Config Server for Azure Spring Cloud before deployment.
+Be aware that our apps are not using Config Server, thus no need to config Config Server for Azure Spring Apps before deployment.
 
 ```azurecli
 az spring-cloud app create -n user-service --is-public

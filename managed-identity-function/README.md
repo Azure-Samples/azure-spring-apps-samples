@@ -1,22 +1,22 @@
 # Invoke Azure Function with managed identity
 
-This sample shows how to invoke an Azure Function securely from `Azure Spring Cloud` using managed identity.
+This sample shows how to invoke an Azure Function securely from Azure Spring Apps using managed identity.
 
 ## Prerequisite
 
-* [JDK 8](https://docs.microsoft.com/en-us/azure/java/jdk/java-jdk-install)
+* [JDK 8](https://docs.microsoft.com/azure/java/jdk/java-jdk-install)
 * [Maven 3.0 and above](http://maven.apache.org/install.html)
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
-* An Http triggered [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) with [authentication enabled](https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
+* An Http triggered [Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) with [authentication enabled](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)
 
 ## How to run 
 
-1. Run `mvn clean package` after specifying the URI and trigger name for your funciton in [application.properties](./src/main/resources/application.properties).
-2. Install Azure CLI extension for Azure Spring Cloud by running below command.
+1. Run `mvn clean package` after specifying the URI and trigger name for your function in [application.properties](./src/main/resources/application.properties).
+2. Install Azure CLI extension for Azure Spring Apps by running below command.
     ```
     az extension add --name spring-cloud
     ```
-3. Create an instance of Azure Spring Cloud.
+3. Create an instance of Azure Spring Apps.
     ```
     az spring-cloud create -n <resource name> -g <resource group name>
     ```

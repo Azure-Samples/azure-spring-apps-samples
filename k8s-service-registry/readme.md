@@ -4,9 +4,9 @@ This sample shows how to use kubernetes service registry in `Azure Spring Apps`.
 
 ### Prerequisite
 
-* [JDK 11](https://docs.microsoft.com/en-us/azure/java/jdk/java-jdk-install)
+* [JDK 11](https://docs.microsoft.com/azure/java/jdk/java-jdk-install)
 * [Maven 3.0 and above](http://maven.apache.org/install.html)
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
 ### Concept
 Azure Spring Apps will create a dns record for each app, you can access to the app by http://{AppName} or https://{AppName} if you enable [ingress-app-tls](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-enable-ingress-to-app-tls). 
@@ -34,11 +34,11 @@ All these communications are using kubernetes service registry.
 ### How to run
 
 1. Run `mvn clean package` under `k8s-service-registry`.
-2. Install Azure CLI extension for Azure Spring Cloud by running below command.
+2. Install Azure CLI extension for Azure Spring Apps by running below command.
 ```
 az extension add --name spring
 ```
-3. Create an instance of Azure Spring Cloud.
+3. Create an instance of Azure Spring Apps.
 ```
 az spring create -n <resource name> -g <resource group name>
 ```

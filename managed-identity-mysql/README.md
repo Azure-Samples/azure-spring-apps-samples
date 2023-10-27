@@ -1,14 +1,14 @@
 # Access Azure Database for MySQL with managed identity
 
-This sample shows how to access Azure Database for MySQL with managed identity in `Azure Spring Cloud`.
+This sample shows how to access Azure Database for MySQL with managed identity in Azure Spring Apps.
 
 ## Prerequisite
 
-* [JDK 8](https://docs.microsoft.com/en-us/azure/java/jdk/java-jdk-install)
+* [JDK 8](https://docs.microsoft.com/azure/java/jdk/java-jdk-install)
 * [Maven 3.0 and above](http://maven.apache.org/install.html)
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
-* An existing Key Vault. If you need to create a Key Vault, you can use the [Azure Portal](https://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-portal) or [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
-* An existing Azure Database for MySQL instance with a database with name `demo`. If you need to create Azure Database for MySQL, you can use the [Azure Portal](https://docs.microsoft.com/en-us/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal) or [Azure CLI](https://docs.microsoft.com/en-us/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
+* An existing Key Vault. If you need to create a Key Vault, you can use the [Azure Portal](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal) or [Azure CLI](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
+* An existing Azure Database for MySQL instance with a database with name `demo`. If you need to create Azure Database for MySQL, you can use the [Azure Portal](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal) or [Azure CLI](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
 
 ## How to run
 
@@ -25,11 +25,11 @@ This sample shows how to access Azure Database for MySQL with managed identity i
     ```
     mvn clean package -DskipTests
     ```
-4. Install Azure CLI extension version 2.0.67 or higher for Azure Spring Cloud by running below command.
+4. Install Azure CLI extension version 2.0.67 or higher for Azure Spring Apps by running below command.
     ```
     az extension add -n spring-cloud
     ```
-5. Create an instance of Azure Spring Cloud.
+5. Create an instance of Azure Spring Apps.
     ```
     az spring-cloud create -n <resource name> -g <resource group name>
     ```
