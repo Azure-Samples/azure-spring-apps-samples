@@ -10,7 +10,7 @@ namespace Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider
         public static void Main(string[] args) => CreateHostBuilder(args).Build().Run();
 
         /// <summary>
-        /// Configure steeltoe and Azure Spring Cloud.
+        /// Configure steeltoe and Azure Spring Apps.
         ///
         /// Please ensure you are using the correct version of Microsoft.Azure.SpringCloud.Client:
         /// <list type="bullet">
