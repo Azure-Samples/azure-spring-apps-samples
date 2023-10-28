@@ -9,11 +9,11 @@ package com.microsoft.sample.java8ASCdemo;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@SpringBootTest(classes = Java8AscDemoApplicationTests.class, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 class Java8AscDemoApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }
