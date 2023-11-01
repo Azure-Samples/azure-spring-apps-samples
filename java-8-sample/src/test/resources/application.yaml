@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    config:
+      enable: false
+
+message: "hello from test"

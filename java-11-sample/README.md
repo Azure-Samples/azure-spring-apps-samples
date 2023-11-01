@@ -12,27 +12,27 @@ This sample shows how to run Java 11 app in `Azure Spring Apps`.
 
 1. Run `mvn clean package` under `java-11-sample`.
 1. Install Azure CLI extension for Azure Spring Apps by running below command.
-    ```
-    az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+    ```bash
+    az extension add --name spring
     ```
 1. Create an instance of Azure Spring Apps.
-    ```
-    az spring-cloud create -n <resource name> -g <resource group name>
+    ```bash
+    az spring create -n <service name> -g <resource group name>
     ```
 1. Create an app with public domain assigned.
-    ```
-    az spring-cloud app create -n <app name> -s <resource name> -g <resource group name> --is-public true 
+    ```bash
+    az spring app create -n <app name> -s <resource name> -g <resource group name> --runtime-version Java_11 --is-public true 
     ```
 1. Deploy app with jar
-    ```
-    az spring-cloud app deploy -n <app name> -s <resource name> -g <resource group name> --jar-path ./target/hello-world-11-1.0-SNAPSHOT.jar
+    ```bash
+    az spring app deploy -n <app name> -s <resource name> -g <resource group name> --artifact-path ./target/hello-world-11-1.0-SNAPSHOT.jar
     ```
 1. Verify app is running. Instances should have status `RUNNING` and discoveryStatus `UP`. 
-    ```
-    az spring-cloud app show -n <app name> -s <resource name> -g <resource group name>
+    ```bash
+    az spring app show -n <app name> -s <resource name> -g <resource group name>
     ```
 1. Verify sample is working. The url is fetch from previous step. 
-    ```
+    ```bash
     curl {url}/{name}
     Hello {name}
     ```
