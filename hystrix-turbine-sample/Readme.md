@@ -100,12 +100,12 @@ You can now play with your Circuit Breaker Dashboard.
 
 Hystrix metrics streams are also accessible from test-endpoint. As a backend service, `recommendation-service` doesn't need a public end-point. You can get endpoint using command below.
 ```bash
-echo $(az spring test-endpoint list -g ${RESOURCE_GROUP} --app recommendation-service -n ${SPRING_APPS_SERVICE} --app recommendation-service --query "primaryTestEndpoint" -o tsv)
+echo $(az spring test-endpoint list -g ${RESOURCE_GROUP} -n ${SPRING_APPS_SERVICE} --app recommendation-service --query "primaryTestEndpoint" -o tsv)
 ```
 
 If you need to show its metrics, you need to get full path using command below.
 ```bash
-echo $(az spring test-endpoint list -g ${RESOURCE_GROUP} --app recommendation-service -n ${SPRING_APPS_SERVICE} --app recommendation-service --query "primaryTestEndpoint" -o tsv)/actuator/hystrix.stream
+echo $(az spring test-endpoint list -g ${RESOURCE_GROUP} -n ${SPRING_APPS_SERVICE} --app recommendation-service --query "primaryTestEndpoint" -o tsv)/actuator/hystrix.stream
 ```
 
 As a web app, Hystrix dashboard should also be working on test endpoint. However, it is not working properly for two reasons: First, using test endpoint will change the base URL from `/` to `/<APP-NAME>/<DEPLOYMENT-NAME>`. Second, the web app is using absolute path for static resource. To get it worked on test endpoint, you might need to manually edit the `<base>`in the front-end files.
