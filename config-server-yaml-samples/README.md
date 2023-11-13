@@ -12,7 +12,7 @@ The http basic authentication [config-server-http-basic-auth.yml](./config-serve
 
 ### SSH Authentication
 
-The ssh authentication [config-server-ssh-auth.yml](./config-server-ssh-auth.yml) file for `Config Server` focus on access private git repository with [SSH](./https://en.wikipedia.org/wiki/Secure_Shell). Almost the same as `Http Basic Authentication`, at least the `private key` of `SSH` should be provided.
+The ssh authentication [config-server-ssh-auth.yml](./config-server-ssh-auth.yml) file for `Config Server` focus on access private git repository with [SSH](https://en.wikipedia.org/wiki/Secure_Shell). Almost the same as `Http Basic Authentication`, at least the `private key` of `SSH` should be provided.
 
 ### Pattern
 
