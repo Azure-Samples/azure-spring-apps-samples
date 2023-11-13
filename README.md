@@ -9,7 +9,8 @@ urlFragment: "azure-spring-cloud-samples"
 ---
 
 # Azure Spring Apps Samples
-![build](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/actions/workflows/build.yml/badge.svg)
+![Build](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/actions/workflows/build.yml/badge.svg)  ![Check Markdown Links](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/actions/workflows/markdown-link-check.yml/badge.svg)
+
 
 ## Overview
 
