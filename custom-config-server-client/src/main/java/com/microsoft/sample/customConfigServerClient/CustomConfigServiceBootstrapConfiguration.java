@@ -59,7 +59,8 @@ public class CustomConfigServiceBootstrapConfiguration {
 
         @Override
         public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {
-            String accessToken = AccessTokenManager.getToken();
+            AccessTokenManager manager = new AccessTokenManager();
+            String accessToken = manager.getToken();
             request.getHeaders().remove(AUTHORIZATION);
             request.getHeaders().add(AUTHORIZATION, "Bearer " + accessToken);
 
