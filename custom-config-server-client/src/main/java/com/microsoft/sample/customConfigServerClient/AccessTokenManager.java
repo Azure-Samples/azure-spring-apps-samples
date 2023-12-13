@@ -47,13 +47,4 @@ public class AccessTokenManager {
             .build();
         return credentials.getTokenSync(tokenRequest).getToken();
     }
-
-    public static void main(String[] args) {
-        AccessTokenManager accessTokenManager = new AccessTokenManager();
-        try {
-            System.out.println(accessTokenManager.getToken());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
