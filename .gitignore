@@ -32,3 +32,5 @@ publish/
 
 # VS Code
 .vscode/
+
+setup-env-variables.sh
