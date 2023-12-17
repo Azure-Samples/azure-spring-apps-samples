@@ -5,4 +5,3 @@ export SPRING_APPS_SERVICE='azure-spring-apps-name'   # name of the service that
 echo "SUBSCRIPTION=$SUBSCRIPTION"
 echo "RESOURCE_GROUP=$RESOURCE_GROUP"
 echo "SPRING_APPS_SERVICE=$SPRING_APPS_SERVICE"
-echo "APP_NAME=$APP_NAME"
