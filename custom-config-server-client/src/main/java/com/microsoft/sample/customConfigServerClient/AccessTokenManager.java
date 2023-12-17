@@ -6,13 +6,16 @@
 
 package com.microsoft.sample.customConfigServerClient;
 
-import com.azure.core.credential.TokenRequestContext;
-import com.azure.identity.ClientSecretCredential;
-import com.azure.identity.ClientSecretCredentialBuilder;
-import com.microsoft.azure.AzureEnvironment;
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.OffsetDateTime;
 import java.util.Properties;
+
+import com.azure.core.credential.AccessToken;
+import com.azure.core.credential.TokenCredential;
+import com.azure.core.credential.TokenRequestContext;
+import com.azure.core.management.AzureEnvironment;
+import com.azure.identity.ClientSecretCredentialBuilder;
 
 public class AccessTokenManager {
 
@@ -37,14 +40,19 @@ public class AccessTokenManager {
 
     private static String tenantId;
 
+    private AccessToken token;
+
     public String getToken() throws IOException {
-        TokenRequestContext tokenRequest = new TokenRequestContext().addScopes("https://management.core.windows.net//.default");
-        ClientSecretCredential credentials = new ClientSecretCredentialBuilder()
-            .clientId(clientId)
-            .clientSecret(secret)
-            .tenantId(tenantId)
-            .authorityHost(AzureEnvironment.AZURE.activeDirectoryEndpoint())
-            .build();
-        return credentials.getTokenSync(tokenRequest).getToken();
+        if (token == null || token.getExpiresAt().isBefore(OffsetDateTime.now().plusMinutes(5))) {
+            TokenCredential credential = new ClientSecretCredentialBuilder()
+                    .clientId(clientId)
+                    .clientSecret(secret)
+                    .tenantId(tenantId)
+                    .build();
+            token = credential.getTokenSync(new TokenRequestContext()
+                    .setTenantId(tenantId)
+                    .addScopes(String.format("%s/.default", AzureEnvironment.AZURE.getManagementEndpoint())));
+        }
+        return token.getToken();
     }
 }
