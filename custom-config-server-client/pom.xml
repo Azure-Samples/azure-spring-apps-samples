@@ -31,12 +31,10 @@
 		<dependency>
 			<groupId>com.azure</groupId>
 			<artifactId>azure-core-management</artifactId>
-			<version>1.11.9</version>
 		</dependency>
 		<dependency>
 			<groupId>com.azure</groupId>
 			<artifactId>azure-identity</artifactId>
-			<version>1.11.1</version>
 			<scope>compile</scope>
 		</dependency>
 		<!-- tag::actuator[] -->
@@ -52,6 +50,13 @@
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
 				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.azure</groupId>
+				<artifactId>azure-sdk-bom</artifactId>
+				<version>1.2.19</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
