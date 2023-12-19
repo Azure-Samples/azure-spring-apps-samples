@@ -16,5 +16,8 @@
         "pattern": "^http://proxyserver"
       }
     ],
+    "timeout": "20s",
+    "retryOn429": true,
+    "retryCount": 5,
     "aliveStatusCodes": [200]
   }

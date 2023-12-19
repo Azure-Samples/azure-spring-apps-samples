@@ -6,11 +6,16 @@
 
 package com.microsoft.sample.customConfigServerClient;
 
-import com.microsoft.azure.AzureEnvironment;
-import com.microsoft.azure.credentials.ApplicationTokenCredentials;
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.OffsetDateTime;
 import java.util.Properties;
+
+import com.azure.core.credential.AccessToken;
+import com.azure.core.credential.TokenCredential;
+import com.azure.core.credential.TokenRequestContext;
+import com.azure.core.management.AzureEnvironment;
+import com.azure.identity.ClientSecretCredentialBuilder;
 
 public class AccessTokenManager {
 
@@ -19,22 +24,35 @@ public class AccessTokenManager {
         InputStream in = AccessTokenManager.class.getResourceAsStream("/application.properties");
         try {
             prop.load(in);
-            tokenClientId = prop.getProperty("access.token.clientId");
-            String tenantId = prop.getProperty("access.token.tenantId");
-            String secret = prop.getProperty("access.token.secret");
-            String clientId = prop.getProperty("access.token.clientId");
-            credentials = new ApplicationTokenCredentials(
-                clientId, tenantId, secret, AzureEnvironment.AZURE);
+
+            clientId = prop.getProperty("access.token.clientId");
+            tenantId = prop.getProperty("access.token.tenantId");
+            secret = prop.getProperty("access.token.secret");
+
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
     }
 
-    private static String tokenClientId;
+    private static String clientId;
 
-    private static ApplicationTokenCredentials credentials;
+    private static String secret;
 
-    public static String getToken() throws IOException {
-        return credentials.getToken(tokenClientId);
+    private static String tenantId;
+
+    private AccessToken token;
+
+    public String getToken() throws IOException {
+        if (token == null || token.getExpiresAt().isBefore(OffsetDateTime.now().plusMinutes(5))) {
+            TokenCredential credential = new ClientSecretCredentialBuilder()
+                    .clientId(clientId)
+                    .clientSecret(secret)
+                    .tenantId(tenantId)
+                    .build();
+            token = credential.getTokenSync(new TokenRequestContext()
+                    .setTenantId(tenantId)
+                    .addScopes(String.format("%s/.default", AzureEnvironment.AZURE.getManagementEndpoint())));
+        }
+        return token.getToken();
     }
 }
