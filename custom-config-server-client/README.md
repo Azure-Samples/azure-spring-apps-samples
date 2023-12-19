@@ -56,7 +56,8 @@ az spring create -g ${RESOURCE_GROUP} -n ${SPRING_APPS_SERVICE}
 az spring config-server git set -g ${RESOURCE_GROUP} -n ${SPRING_APPS_SERVICE} --uri "https://github.com/Azure-Samples/piggymetrics-config.git"
 ```
 
-## Create Microsoft Entra Service Principle for Sample App
+## Create Microsoft Entra Service Principal for Sample App
+
 1. Create a service principal to access the Config Server in your application. Please mark down 
   ```bash
   # Get resource id of service instance
