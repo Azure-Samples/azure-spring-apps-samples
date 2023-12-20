@@ -13,8 +13,8 @@ This sample shows how to access Azure Spring Apps managed Spring Cloud Service R
 1. Clone this repo and go to folder
 
     ```bash
-    git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples
-    cd Azure-Spring-Cloud-Samples/custom-eureka-client
+    git clone https://github.com/Azure-Samples/azure-spring-apps-samples
+    cd azure-spring-apps-samples/custom-eureka-client
     ```
 
 1. Install Azure CLI extension for Azure Spring Apps

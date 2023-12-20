@@ -13,8 +13,8 @@ This sample shows how to run Java 8 app in Azure Spring Apps.
 1. Clone this repo and go to folder
 
     ```bash
-    git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples
-    cd Azure-Spring-Cloud-Samples/java-8-sample
+    git clone https://github.com/Azure-Samples/azure-spring-apps-samples
+    cd azure-spring-apps-samples/java-8-sample
     ```
 
 1. Package the app using maven
