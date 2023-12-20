@@ -13,8 +13,8 @@ This sample shows how to auto refresh config server changes by letting the confi
 1. Clone this repo and go to folder
 
     ```bash
-    git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples
-    cd Azure-Spring-Cloud-Samples/config-client-polling
+    git clone https://github.com/Azure-Samples/azure-spring-apps-samples
+    cd azure-spring-apps-samples/config-client-polling
     ```
 
 1. Package the app using maven

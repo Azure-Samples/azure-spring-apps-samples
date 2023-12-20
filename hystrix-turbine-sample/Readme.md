@@ -9,8 +9,8 @@
 Clone the sample repository to your develop environment. It is forked from [this repository](https://github.com/StackAbuse/spring-cloud/tree/master/spring-turbine), check out the original [blog](https://stackabuse.com/spring-cloud-turbine/) if you want to learn more.
 
 ```bash
-git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples.git
-cd Azure-Spring-Cloud-Samples/hystrix-turbine-sample
+git clone https://github.com/Azure-Samples/azure-spring-apps-samples.git
+cd azure-spring-apps-samples/hystrix-turbine-sample
 ```
 
 Build the 3 applications that will be used in this tutorial.

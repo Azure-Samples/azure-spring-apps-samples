@@ -5,11 +5,11 @@ languages:
 products:
 - azure-spring-apps
 description: "Sample projects for Azure Spring Apps"
-urlFragment: "azure-spring-cloud-samples"
+urlFragment: "azure-spring-apps-samples"
 ---
 
 # Azure Spring Apps Samples
-![Build](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/actions/workflows/build.yml/badge.svg)  ![Check Markdown Links](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/actions/workflows/markdown-link-check.yml/badge.svg)
+![Build](https://github.com/Azure-Samples/azure-spring-apps-samples/actions/workflows/build.yml/badge.svg)  ![Check Markdown Links](https://github.com/Azure-Samples/azure-spring-apps-samples/actions/workflows/markdown-link-check.yml/badge.svg)
 
 
 ## Overview

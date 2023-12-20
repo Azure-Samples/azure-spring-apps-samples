@@ -15,8 +15,8 @@ As Config Server is a protected resource in Azure Spring Apps service, the clien
 
 Clone the sample repository to your develop environment. 
 ```bash
-git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples
-cd Azure-Spring-Cloud-Samples/custom-config-server-client
+git clone https://github.com/Azure-Samples/azure-spring-apps-samples
+cd azure-spring-apps-samples/custom-config-server-client
 ```
 
 ## Provision your Azure Spring Apps instance
