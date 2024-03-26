@@ -61,7 +61,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>org.springframework.batch.samples.football.FootballJobApplication</mainClass>
+							<mainClass>com.microsoft.sample.FootballJobApplication</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

@@ -1,4 +1,4 @@
-package org.springframework.batch.samples.football;
+package com.microsoft.sample;
 
 import javax.sql.DataSource;
 
@@ -11,6 +11,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.JdbcClient;
+import org.springframework.batch.samples.football.FootballJobConfiguration;
 
 public class FootballJobApplication {
 
@@ -26,7 +27,7 @@ public class FootballJobApplication {
                     .sql("SELECT COUNT(0) FROM PLAYER_SUMMARY")
                     .query(Integer.class)
                     .single();
-            LOGGER.info("There is "+count+" player summary before job execution");
+            LOGGER.info("There is {} player summary before job execution");
 
             jobLauncher.run(job, new JobParameters());
             
@@ -34,7 +35,7 @@ public class FootballJobApplication {
                     .sql("SELECT COUNT(0) FROM PLAYER_SUMMARY")
                     .query(Integer.class)
                     .single();
-            LOGGER.info("There is "+count+" player summary after job execution");
+            LOGGER.info("There is {} player summary after job execution", count);
         }
     }
 
