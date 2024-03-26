@@ -1,17 +1,14 @@
-# Football Job
+# Hello World
 
 ## About the sample
-This sample project is derived from Spring Batch sample [Football Job](https://raw.githubusercontent.com/spring-projects/spring-batch/main/spring-batch-samples/src/main/java/org/springframework/batch/samples/football/README.md). It is a statistics loading job. Instead of triggering by unit test in original sample, it is initiated by the main method of FootballJobApplication. 
-
-Please reference [README.md](https://raw.githubusercontent.com/spring-projects/spring-batch/main/spring-batch-samples/src/main/java/org/springframework/batch/samples/football/README.md) to learn more.
-
+This sample project demonstrates the fundamental features of job in Azure Spring Apps service.
 
 ## How to run
 
 ### Prepare environment variables
 * Navigate to the root folder of this Java sample project from the root of git repo.
 ```bash
-cd job-samples/football
+cd job-samples/hello-world
 ```
 * Create environment variables file `setup-env-variables.sh` based on template. 
 ```bash
@@ -38,24 +35,28 @@ mvn clean
 
 * Create the job.
 ```bash
-az spring job create -g ${RESOURCE_GROUP} -s ${SPRING_APPS_SERVICE} --name football
+az spring job create -g ${RESOURCE_GROUP} -s ${SPRING_APPS_SERVICE} --name hello-world-job
 ```
 
 * Deploy this football sample project to job. It uploads and compiles the source code on Azure and makes it ready to start. 
 ```bash
-az spring job deploy -g ${RESOURCE_GROUP} -s ${SPRING_APPS_SERVICE} --name football --source-path . --build-env BP_JVM_VERSION=17.*
+az spring job deploy -g ${RESOURCE_GROUP} -s ${SPRING_APPS_SERVICE} --name hello-world-job --source-path . --build-env BP_JVM_VERSION=17.*
 ```
 
-* Start job and set execution name to the variable `EXECUTION_NAME`.
+* Start job with custom environment variables and arguments.
 ```bash
-export EXECUTION_NAME=$(az spring job start -g ${RESOURCE_GROUP} -s ${SPRING_APPS_SERVICE} --name football --query name -o tsv)
+az spring job start -g ${RESOURCE_GROUP} -s ${SPRING_APPS_SERVICE} --name hello-world-job --envs JOB_ENV_ATTR1=value1 JOB_ENV_ATTR2=value2 --secret-envs JOB_ENV_SECRET1=mysecret --args "test a b --sleep=5 c:d a"
+```
+* List execution results
+```
+az spring job execution list -g ${RESOURCE_GROUP} -s ${SPRING_APPS_SERVICE} --job-name hello-world-job --query '[].{startTime:startTime, endTime:endTime, name:name, status:status}' --output table
 ```
 
 ### Query job execution log
 
-* Query execution result according to job name and its execution name.
+* Get the execution name of the last execution.
 ```bash
-az spring job execution show -g ${RESOURCE_GROUP} -s ${SPRING_APPS_SERVICE} --job-name football --job-execution-name ${EXECUTION_NAME}
+export EXECUTION_NAME=$(az spring job execution list -g ${RESOURCE_GROUP} -s ${SPRING_APPS_SERVICE} --job-name hello-world-job --query '[-1].name' -o tsv)
 ```
 
 * Fetch resource id of the log analytics workspace. The script below assumes the first workspace is serving the current ASA service instance. If there are multiple workspaces, please set the correct resource id to `WORKSPACE_ID`
@@ -70,4 +71,16 @@ export WORKSPACE_ID=$(az monitor diagnostic-settings list -g ${RESOURCE_GROUP} -
 export CUSTOMER_ID=$(az monitor log-analytics workspace show --ids ${WORKSPACE_ID} --query customerId -o tsv)
 
 az monitor log-analytics query -w ${CUSTOMER_ID} --analytics-query "AppPlatformLogsforSpring | where AppName == '${EXECUTION_NAME}' | order by TimeGenerated asc" --query '[].{Time:TimeGenerated, Log:Log}' --output table
+```
+
+### Cancel an executing job
+
+* Start job with default settings. It will sleep for 30 seconds to imitate the real job.
+```bash
+export EXECUTION_NAME=$(az spring job start -g ${RESOURCE_GROUP} -s ${SPRING_APPS_SERVICE} --name hello-world-job --query name -o tsv)
+```
+
+* Cancel the executing job by name
+```bash
+az spring job execution cancel -g ${RESOURCE_GROUP} -s ${SPRING_APPS_SERVICE} --job-name hello-world-job --job-execution-name ${EXECUTION_NAME}
 ```
