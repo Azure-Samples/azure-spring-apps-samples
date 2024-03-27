@@ -21,6 +21,7 @@ cp ./setup-env-variables-template.sh setup-env-variables.sh -i
 * Set subscription id to variable `SUBSCRIPTION`, desired name of resource group and service instance to variables `RESOURCE_GROUP` and `SPRING_APPS_SERVICE`.
 ```bash
 source ./setup-env-variables.sh
+az account set --subscription ${SUBSCRIPTION}
 ```
 
 ### Create Azure Spring Apps Service
@@ -53,6 +54,8 @@ export EXECUTION_NAME=$(az spring job start -g ${RESOURCE_GROUP} -s ${SPRING_APP
 
 ### Query job execution log
 
+It takes several minutes to show logs of the job execution in log analytics workspace.
+
 * Query execution result according to job name and its execution name.
 ```bash
 az spring job execution show -g ${RESOURCE_GROUP} -s ${SPRING_APPS_SERVICE} --job-name football --job-execution-name ${EXECUTION_NAME}
@@ -62,7 +65,7 @@ az spring job execution show -g ${RESOURCE_GROUP} -s ${SPRING_APPS_SERVICE} --jo
 ```bash
 export SPRING_APPS_RESOURCE_ID=$(az spring show -g ${RESOURCE_GROUP} -n ${SPRING_APPS_SERVICE} --query id -o tsv)
 
-export WORKSPACE_ID=$(az monitor diagnostic-settings list -g ${RESOURCE_GROUP} --resource ${SPRING_APPS_SERVICE} --resource-type Microsoft.AppPlatform/Spring --query [0].workspaceId -o tsv)
+export WORKSPACE_ID=$(az monitor diagnostic-settings list -g ${RESOURCE_GROUP} --resource ${SPRING_APPS_SERVICE} --resource-type Microsoft.AppPlatform/Spring --query '[0].workspaceId' -o tsv)
 ```
 
 * Query execution log from the log analytics workspace.
