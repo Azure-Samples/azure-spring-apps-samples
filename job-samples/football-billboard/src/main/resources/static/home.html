@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>Hello</title>
+<style type="text/css">
+body {
+	background-image: url('background.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-color: black;
+}
+
+div.box {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	background-color: black;
+	opacity: 0.7;
+}
+
+div.messageBox {
+	position: relative;
+	margin-top: 200px;
+	width: 800px;
+	height: 200px;
+	background-color: white;
+	opacity: 0.7;
+	text-align: center; 
+}
+div.message {
+	font-size: 50;
+}
+div.updatedAt {
+	position: absolute;
+	bottom: 5px;
+	right: 10px;
+	font-size: 20;
+}
+button.refresh {
+	position: relative;
+	margin-top: 200px;
+	width: 200px;
+	background-color: white;
+	opacity: 0.7;
+	font-size: 30;
+}
+</style>
+<script>
+	function refresh() {
+
+	}
+</script>
+</head>
+<body onload="refresh()">
+	<div class="box" align="center">
+		<div class="messageBox">
+			<div class="message">
+				<p>No update</p>
+			</div>
+			<div class="updatedAt">123</div>
+		</div>
+		<button class="refresh" onclick="refresh()">
+			Refresh
+		</button>
+	</div>
+</body>
+</html>

@@ -1,5 +1,7 @@
 package com.microsoft.sample;
 
+import java.util.Date;
+
 import javax.sql.DataSource;
 
 import org.slf4j.Logger;
@@ -11,11 +13,17 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.JdbcClient;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.batch.samples.football.FootballJobConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 
 public class FootballJobApplication {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(FootballJobApplication.class);
+    
+    @Autowired
+    private DiscoveryClient discoveryClient;
     
     public static void main(String[] args) throws Exception {
 
@@ -36,6 +44,13 @@ public class FootballJobApplication {
                     .query(Integer.class)
                     .single();
             LOGGER.info("There is {} player summary after job execution", count);
+            
+            ResultReport result = new ResultReport();
+            result.setLastExecuted(new Date());
+            result.setSummaryCount(count);
+            
+            RestTemplate restTemplate = new RestTemplate();
+            restTemplate.postForEntity(null, result, ResultReport.class);            
         }
     }
 
