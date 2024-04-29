@@ -1,5 +1,6 @@
 package com.microsoft.sample;
 
+import java.net.URI;
 import java.util.Date;
 
 import javax.sql.DataSource;
@@ -13,14 +14,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@EnableDiscoveryClient
+@EnableDiscoveryClient(autoRegister = false)
+@Configuration
+@ComponentScan("org.springframework.batch.samples.football")
 public class FootballJobApplication implements CommandLineRunner {
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(FootballJobApplication.class);
@@ -39,7 +45,6 @@ public class FootballJobApplication implements CommandLineRunner {
 
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(FootballJobApplication.class, args);
-
 	}
 
 	@Override
@@ -57,9 +62,11 @@ public class FootballJobApplication implements CommandLineRunner {
 		ResultReport result = new ResultReport();
 		result.setLastExecuted(new Date());
 		result.setSummaryCount(count);
-
+		
+		ServiceInstance instance = discoveryClient.getInstances("football-billboard").get(0);
+		URI uri = instance.getUri().resolve("/api/result/update");
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.postForEntity(null, result, ResultReport.class);
+		restTemplate.postForEntity(uri, result, ResultReport.class);
 	}
 
 }
