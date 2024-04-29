@@ -18,7 +18,7 @@ public class BillboardService {
 	 * @param resultReport the resultReport to set
 	 */
 	public void setResultReport(ResultReport resultReport) {
-		if (resultReport == null) {
+		if (this.resultReport == null) {
 			this.resultReport = resultReport;
 		} else {
 			this.resultReport.setSummaryCount(this.resultReport.getSummaryCount() + resultReport.getSummaryCount());

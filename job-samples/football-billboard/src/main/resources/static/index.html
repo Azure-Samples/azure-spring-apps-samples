@@ -31,6 +31,7 @@ div.messageBox {
 }
 div.message {
 	font-size: 50;
+	padding-top: 45px;
 }
 div.updatedAt {
 	position: absolute;
@@ -50,21 +51,43 @@ button.refresh {
 <script>
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function () {
-		
+		if(this.readyState==4 && this.status==200) {
+			updateContent(JSON.parse(this.responseText));
+		}
+	}
+	
+	function updateContent(message) {
+		if(message != null) {
+			var content = "There ";
+			if(message.summaryCount > 1) {
+				content += "are " + message.summaryCount + " reports";
+			}
+			else {
+				content += "is " + message.summaryCount + " report";
+			}
+			content += " generated now."
+			document.getElementById("message").innerHTML = content;
+			
+			const date = new Date(message.lastExecuted);
+			document.getElementById("updatedAt").innerHTML = date.toLocaleDateString()+ " " + date.toLocaleTimeString();
+		} else {
+			document.getElementById("message").innerHTML = "There is no report.";			
+			document.getElementById("updatedAt").innerHTML = "";
+		}
 	}
 	
 	function refresh() {
-		
+		xmlhttp.open("GET", "api/result")
+		xmlhttp.send();
 	}
 </script>
 </head>
 <body onload="refresh()">
 	<div class="box" align="center">
 		<div class="messageBox">
-			<div class="message">
-				<p>No update</p>
+			<div class="message" id="message">
 			</div>
-			<div class="updatedAt">123</div>
+			<div class="updatedAt" id="updatedAt"></div>
 		</div>
 		<button class="refresh" onclick="refresh()">
 			Refresh
