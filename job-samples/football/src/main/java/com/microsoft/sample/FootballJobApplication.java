@@ -2,6 +2,7 @@ package com.microsoft.sample;
 
 import java.net.URI;
 import java.util.Date;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -23,6 +24,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.web.client.RestTemplate;
 
+import com.netflix.appinfo.InstanceInfo;
+import com.netflix.discovery.EurekaClient;
+import com.netflix.discovery.shared.Application;
+import com.netflix.discovery.shared.Applications;
+
 @SpringBootApplication
 @EnableDiscoveryClient(autoRegister = false)
 @Configuration
@@ -32,7 +38,7 @@ public class FootballJobApplication implements CommandLineRunner {
 	private final static Logger LOGGER = LoggerFactory.getLogger(FootballJobApplication.class);
 
 	@Autowired
-	private DiscoveryClient discoveryClient;
+	private EurekaClient discoveryClient;
 
 	@Autowired
 	private JobLauncher jobLauncher;
@@ -51,7 +57,7 @@ public class FootballJobApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		int count = JdbcClient.create(new JdbcTemplate(ds)).sql("SELECT COUNT(0) FROM PLAYER_SUMMARY")
 				.query(Integer.class).single();
-		LOGGER.info("There is {} player summary before job execution");
+		LOGGER.info("There is {} player summary before job execution", count);
 
 		jobLauncher.run(job, new JobParameters());
 
@@ -62,11 +68,31 @@ public class FootballJobApplication implements CommandLineRunner {
 		ResultReport result = new ResultReport();
 		result.setLastExecuted(new Date());
 		result.setSummaryCount(count);
-		
-		ServiceInstance instance = discoveryClient.getInstances("football-billboard").get(0);
-		URI uri = instance.getUri().resolve("/api/result/update");
-		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.postForEntity(uri, result, ResultReport.class);
+
+		LOGGER.info("discovery client is {}", discoveryClient);
+//		List<String> services = discoveryClient.getServices();
+		List<Application> applications = discoveryClient.getApplications().getRegisteredApplications();
+		for(Application app: applications) {
+			LOGGER.info("Found service {}", app.getName());
+		}
+		//		for (String service : services) {
+//			LOGGER.info("Found service {}", service);
+//		}
+
+		InstanceInfo instance = discoveryClient.getNextServerFromEureka("FOOTBALL-BILLBOARD", false);
+		if(instance != null) {
+			URI uri = new URI(instance.getHomePageUrl()).resolve("/api/result/update");
+			RestTemplate restTemplate = new RestTemplate();
+			restTemplate.postForEntity(uri, result, ResultReport.class);
+		} else {
+			throw new RuntimeException("Cannot discover target service.");
+		}
+//		List<ServiceInstance> list = discoveryClient.getInstances("FOOTBALL-BILLBOARD");
+//		if (list != null && list.size() > 0) {
+//			ServiceInstance instance = list.get(0);
+//			URI uri = instance.getUri().resolve("/api/result/update");
+//			RestTemplate restTemplate = new RestTemplate();
+//			restTemplate.postForEntity(uri, result, ResultReport.class);
 	}
 
 }
