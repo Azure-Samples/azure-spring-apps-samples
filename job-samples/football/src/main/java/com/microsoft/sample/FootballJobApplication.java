@@ -70,14 +70,10 @@ public class FootballJobApplication implements CommandLineRunner {
 		result.setSummaryCount(count);
 
 		LOGGER.info("discovery client is {}", discoveryClient);
-//		List<String> services = discoveryClient.getServices();
 		List<Application> applications = discoveryClient.getApplications().getRegisteredApplications();
 		for(Application app: applications) {
 			LOGGER.info("Found service {}", app.getName());
 		}
-		//		for (String service : services) {
-//			LOGGER.info("Found service {}", service);
-//		}
 
 		InstanceInfo instance = discoveryClient.getNextServerFromEureka("FOOTBALL-BILLBOARD", false);
 		if(instance != null) {
@@ -87,12 +83,6 @@ public class FootballJobApplication implements CommandLineRunner {
 		} else {
 			throw new RuntimeException("Cannot discover target service.");
 		}
-//		List<ServiceInstance> list = discoveryClient.getInstances("FOOTBALL-BILLBOARD");
-//		if (list != null && list.size() > 0) {
-//			ServiceInstance instance = list.get(0);
-//			URI uri = instance.getUri().resolve("/api/result/update");
-//			RestTemplate restTemplate = new RestTemplate();
-//			restTemplate.postForEntity(uri, result, ResultReport.class);
 	}
 
 }
