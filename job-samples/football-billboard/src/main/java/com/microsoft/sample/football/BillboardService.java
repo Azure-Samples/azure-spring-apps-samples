@@ -18,10 +18,10 @@ public class BillboardService {
      * @param resultReport the resultReport to set
      */
     public void setResultReport(ResultReport resultReport) {
-        if(resultReport == null) {
+        if (resultReport == null) {
             return;
         }
-        
+
         if (this.resultReport == null) {
             this.resultReport = resultReport;
         } else {
