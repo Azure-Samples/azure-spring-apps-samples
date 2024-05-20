@@ -1,0 +1,97 @@
+<html>
+<head><meta charset="utf-8">
+<title>Hello</title>
+<style type="text/css">
+body {
+	background-image: url('background.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-color: black;
+}
+
+div.box {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	background-color: black;
+	opacity: 0.7;
+}
+
+div.messageBox {
+	position: relative;
+	margin-top: 200px;
+	width: 800px;
+	height: 200px;
+	background-color: white;
+	opacity: 0.7;
+	text-align: center; 
+}
+div.message {
+	font-size: 50;
+	padding-top: 45px;
+}
+div.updatedAt {
+	position: absolute;
+	bottom: 5px;
+	right: 10px;
+	font-size: 20;
+}
+button.refresh {
+	position: relative;
+	margin-top: 200px;
+	width: 200px;
+	background-color: white;
+	opacity: 0.7;
+	font-size: 30;
+}
+</style>
+<script>
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function () {
+		if(this.readyState==4 && this.status==200) {
+			updateContent(JSON.parse(this.responseText));
+		}
+	}
+	
+	function updateContent(message) {
+		if(message != null) {
+			var content = "There ";
+			if(message.summaryCount > 1) {
+				content += "are " + message.summaryCount + " reports";
+			}
+			else {
+				content += "is " + message.summaryCount + " report";
+			}
+			content += " generated now."
+			document.getElementById("message").innerHTML = content;
+			
+			const date = new Date(message.lastExecuted);
+			document.getElementById("updatedAt").innerHTML = date.toLocaleDateString()+ " " + date.toLocaleTimeString();
+		} else {
+			document.getElementById("message").innerHTML = "There is no report.";			
+			document.getElementById("updatedAt").innerHTML = "";
+		}
+	}
+	
+	function refresh() {
+		xmlhttp.open("GET", "api/result")
+		xmlhttp.send();
+	}
+</script>
+</head>
+<body onload="refresh()">
+	<div class="box" align="center">
+		<div class="messageBox">
+			<div class="message" id="message">
+			</div>
+			<div class="updatedAt" id="updatedAt"></div>
+		</div>
+		<button class="refresh" onclick="refresh()">
+			Refresh
+		</button>
+	</div>
+</body>
+</html>

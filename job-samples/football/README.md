@@ -3,7 +3,7 @@
 ## About the sample
 This sample project is derived from Spring Batch sample [Football Job](https://raw.githubusercontent.com/spring-projects/spring-batch/main/spring-batch-samples/src/main/java/org/springframework/batch/samples/football/README.md). It is a statistics loading job. Instead of triggering by unit test in original sample, it is initiated by the main method of FootballJobApplication. 
 
-Please reference [README.md](https://github.com/spring-projects/spring-batch/blob/main/spring-batch-samples/src/main/java/org/springframework/batch/samples/football/README.md) to learn more.
+This application can co-work with football-billboard long-running application. Please reference [Quickstart](aka.ms/first-spring-batch-job) to learn more.
 
 
 ## How to run
