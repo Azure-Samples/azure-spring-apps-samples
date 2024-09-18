@@ -1,6 +1,5 @@
 package com.azure.asa.sample;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +12,7 @@ public class HelloController {
 
     @GetMapping("/")
     public String index() {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         sb.append("<h1>Greetings from Spring Boot!</h1>");
 
         return sb.toString();
