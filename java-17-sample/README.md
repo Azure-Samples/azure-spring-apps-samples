@@ -1,9 +1,15 @@
+# Local Development
+
+```shell
+docker run --rm -p 8761:8761 springcloud/demo-eureka-server
+```
+
 # Prepare Variables
 ```shell
-SUBSCRIPTION=6c933f90-8115-4392-90f2-7077c9fa5dbd
-LOCATION=westus2
-RESOURCE_GROUP=dixue-asas-vnet-prod
-SERVICE_NAME=dixue-asas-vnet-prod
+SUBSCRIPTION=
+LOCATION=
+RESOURCE_GROUP=
+SERVICE_NAME=
 
 az account set --subscription $SUBSCRIPTION
 ```
@@ -20,7 +26,4 @@ az spring app create -n java17sample --service $SERVICE_NAME -g $RESOURCE_GROUP 
 mvn clean package
 az spring app deploy -n java17sample --service $SERVICE_NAME -g $RESOURCE_GROUP --artifact-path ./target/java-17-sample-1.0-SNAPSHOT.jar
 ```
-# Enterprise Plan
-## Provision ASA Service Instance
 
-## Deploy Application

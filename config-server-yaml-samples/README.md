@@ -20,7 +20,4 @@ The more complex like pattern matching on the application and profile name is al
 
 ### Reference
 
-1. https://cloud.spring.io/spring-cloud-static/spring-cloud-config/2.1.4.RELEASE/single/spring-cloud-config.html#_git_backend
-2. https://cloud.spring.io/spring-cloud-static/spring-cloud-config/2.1.4.RELEASE/single/spring-cloud-config.html#_authentication
-3. https://cloud.spring.io/spring-cloud-static/spring-cloud-config/2.1.4.RELEASE/single/spring-cloud-config.html#_git_ssh_configuration_using_properties
-4. https://cloud.spring.io/spring-cloud-static/spring-cloud-config/2.1.4.RELEASE/single/spring-cloud-config.html#_pattern_matching_and_multiple_repositories
+1. https://docs.spring.io/spring-cloud-config/reference/server/environment-repository/git-backend.html
