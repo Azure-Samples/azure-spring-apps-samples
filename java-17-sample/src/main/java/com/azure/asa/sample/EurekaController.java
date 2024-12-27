@@ -13,7 +13,7 @@ import java.util.Set;
 @RestController
 public class EurekaController {
 
-    @Autowired
+    @Autowired(required = false)
     private EurekaClient discoveryClient;
 
     @GetMapping("/eureka")
