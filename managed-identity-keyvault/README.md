@@ -6,7 +6,7 @@ You need include [ManagedIdentityCredentialBuilder](https://docs.microsoft.com/j
 
 ## Prerequisite
 
-* [JDK 8](https://docs.microsoft.com/azure/java/jdk/java-jdk-install)
+* [JDK 21](https://docs.microsoft.com/azure/java/jdk/java-jdk-install)
 * [Maven 3.0 and above](http://maven.apache.org/install.html)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 * An existing Key Vault. If you need to create a Key Vault, you can use the [Azure Portal](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal) or [Azure CLI](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
@@ -14,35 +14,28 @@ You need include [ManagedIdentityCredentialBuilder](https://docs.microsoft.com/j
 ## How to run 
 
 1. Run `mvn clean package` after specifying the URI of your Key Vault in [application.properties](./src/main/resources/application.properties).
-2. Install Azure CLI extension for Azure Spring Apps by running below command.
+1. Create an instance of Azure Spring Apps.
     ```
-    az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+    az spring create -n <resource name> -g <resource group name>
     ```
-3. Create an instance of Azure Spring Apps.
+1. Create an app with public domain assigned.
     ```
-    az spring-cloud create -n <resource name> -g <resource group name>
+    az spring app create -n <app name> --service <resource name> -g <resource group name> --assign-endpoint true --runtime-version Java_21
     ```
-4. Create an app with public domain assigned.
-    ```
-    az spring-cloud app create -n <app name> -s <resource name> -g <resource group name> --is-public true 
-    ```
-5. Enable system-assigned managed identity for your app and take note of the principal id from the command output.
+1. Enable system-assigned managed identity for your app and take note of the principal id from the command output.
    ```
-   az spring-cloud app identity assign -n <app name> -s <resource name> -g <resource group name>
+   az spring app identity assign -n <app name> --service <resource name> -g <resource group name>
    ```
-6. Grant permission of Key Vault to the system-assigned managed identity.
+1. Assign `Key Vault Secrets User` role to the system-assigned managed identity.
+1. Deploy app with jar.
     ```
-    az keyvault set-policy -n keyvault_name -g resource_group_of_keyvault --secret-permissions get set --object-id <principal-id-you-got-in-step5>
+    az spring app deploy -n <app name> --service <resource name> -g <resource group name> --jar-path ./target/asc-managed-identity-keyvault-sample-0.1.0.jar
     ```
-7. Deploy app with jar.
+1.  Verify app is running. Instances should have status `RUNNING` and discoveryStatus `UP`. 
     ```
-    az spring-cloud app deploy -n <app name> -s <resource name> -g <resource group name> --jar-path ./target/asc-managed-identity-keyvault-sample-0.1.0.jar
+    az spring app show -n <app name> --service <resource name> -g <resource group name>
     ```
-8.  Verify app is running. Instances should have status `RUNNING` and discoveryStatus `UP`. 
-    ```
-    az spring-cloud app show -n <app name> -s <resource name> -g <resource group name>
-    ```
-9. Verify sample is working. The url is fetched from previous step.
+1. Verify sample is working. The url is fetched from previous step.
     ```
     # Create a secret in Key Vault
     curl -X PUT {url}/secrets/{secret-name}?value={value}
