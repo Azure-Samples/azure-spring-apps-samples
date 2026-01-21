@@ -7,7 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="2.0.0-preview.1" />
     <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.0.2" />
-    <PackageReference Include="Steeltoe.Discovery.Eureka" Version="3.0.2" />
+    <PackageReference Include="Steeltoe.Discovery.Eureka" Version="3.2.8" />
     <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="3.0.2" />
     <PackageReference Include="Steeltoe.Management.TracingCore" Version="3.0.2" />
   </ItemGroup>
