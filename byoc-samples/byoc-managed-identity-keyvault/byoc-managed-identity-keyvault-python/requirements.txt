@@ -1,0 +1,4 @@
+Flask==1.1.1
+azure-keyvault-secrets
+azure-identity
+gunicorn
